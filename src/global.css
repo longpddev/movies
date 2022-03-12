@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@import './components/main.css';
+@tailwind utilities;
+
+.c-container {
+    @apply container pl-4 pr-4 ml-auto mr-auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.noselect {
+    user-select: none;
+}
+
+.detail-banner {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.detail-banner__inner {
+    background-image: linear-gradient(to right, rgba(52.5, 31.5, 31.5, 1) 150px, rgba(52.5, 31.5, 31.5, 0.84) 100%);
+}
+
+.translate--1\/2 {
+    transform: translate(-50%, -50%);
+}

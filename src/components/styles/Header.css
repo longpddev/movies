@@ -1,0 +1,12 @@
+.menu-main .submenu{
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    pointer-events: none;
+}
+
+.menu-main .menu-l1:hover .submenu{
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
+}

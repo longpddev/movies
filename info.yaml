@@ -1,0 +1,10 @@
+router:
+  - /home as /
+  - /movie/?slug
+  - /tv/?slug
+  - /detail/?slug
+  - about-us
+  - contact-us
+  - login
+  - logout
+  - search
