@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import { Icon } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
@@ -10,6 +11,13 @@ const HeaderSearch = ({ isMobile, className }) => {
     const [text, setText] = useState('');
     const [ debounceVal ] = useDebounce(text, 300); 
     const [ isActive, setIsActive ] = useState(false);
+    const navigate = useNavigate();
+    const handleSubmit = useCallback((e) => {
+        e.preventDefault();
+        navigate(`/search?p=${text}`);
+        setIsActive(false);
+    })
+
     useEffect(() => {
         console.log(debounceVal);
     }, [debounceVal]);
@@ -34,7 +42,9 @@ const HeaderSearch = ({ isMobile, className }) => {
                     className="search-contain absolute inset-0 top-full z-10 bg-white p-5  min-h-max border-b border-gray-300"
                 >
                     <div className="c-container">
-                        <input className="rounded-full p-2 pl-5 shadow-md border-0 outline-0 w-full" type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Search for a movie, Tv shows..."/>
+                        <form action="" onSubmit={handleSubmit}>
+                            <input className="rounded-full p-2 pl-5 shadow-md border-0 outline-0 w-full" type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Search for a movie, Tv shows..."/>
+                        </form>
                         <motion.div layout>
                             <div className="result">
                                 <div className="no-result w-full grid place-content-center min-h-[100px]">

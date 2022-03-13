@@ -11,7 +11,7 @@ const Banner = ({className}) => {
     }
     return (
         <div className={clsx('banner c-container relative', className)}>
-            <img src={banner} alt="banner" className="w-full block" />
+            <img src={banner} alt="banner" width="100%" height="450px" className="w-full block" />
             <div className="absolute inset-0 c-container flex items-center">
                 <div className="min-h-min c-container  pl-8 pr-8">
                     <h1 className="text-white font-bold text-5xl mb-2">Welcome.</h1>

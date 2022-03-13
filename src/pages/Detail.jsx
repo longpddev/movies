@@ -1,11 +1,21 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import Flickity from 'react-flickity-component';
-
+import "flickity/css/flickity.css";
 import Score from '../components/Score';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import detailBanner from '../images/detailBanner.jpg';
 import movie from '../images/movie1.jpg';
+import CardActor from '../components/CardActor'
+import { TabMedia } from '../components/Tabs'
+
+const flickityOptions = {
+    initialIndex: 0,
+    pageDots: false,
+    prevNextButtons: false,
+    freeScroll: true,
+    contain: true,
+}
 
 const Detail = () => {
   return (
@@ -54,6 +64,25 @@ const Detail = () => {
                 </div>
             </div>
         </div>
+
+        <div className="c-container">
+            <div className="mt-8 w-4/5">
+                <h3 className="text-xl mb-6">Series Cast</h3>
+                <Flickity options={flickityOptions}>
+                {Array(10).fill(1).map((item, index)=>(
+                    <div className="px-2" key={index}>
+                        <CardActor key={index} />
+                    </div>
+                ))}
+                </Flickity>
+                
+                <TabMedia />    
+            </div>
+            <div className="mt-8 w-1/5">
+
+            </div>
+        </div>
+
     </>
   )
 }

@@ -1,19 +1,21 @@
 import React from 'react'
-import { motion } from 'framer-motion';
 import Score from '../components/Score';
 
 import Banner from '../components/Banner';
-import List from '../components/List';
+import Popular from '../components/Popular';
+import Trending from '../components/Trending';
 import LeaderBoard from '../components/LeaderBoard';
 
+
 const Home = () => {
+
   return (
-    <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+    <div>
       <Banner className="mb-8" />
-      <List className="mb-8" id="list-1" />
-      <List className="mb-8" id="list-2" />
+      {/* <Popular className="mb-8" id="list-2" /> */}
+      <Trending className="mb-8" />
       <LeaderBoard />
-    </motion.div>
+    </div>
   )
 }
 
