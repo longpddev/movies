@@ -7,6 +7,7 @@ import StyleGuide from './pages/StyleGuide';
 import Category from './pages/Category';
 import Detail from './pages/Detail';
 import Search from './pages/Search';
+import Search1 from './pages/Search1';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/about-us" element={ <Home /> } />
         <Route path="/contact-us" element={ <Home /> } />
         <Route path="/search" element={ <Search /> } />
+        <Route path="/search1" element={ <Search1 /> } />
         <Route path="/404" element={ <Home /> } />
         <Route path="/style-guide" element={ <StyleGuide /> } />
         <Route path="*" element={ <Navigate to="/404" /> } />
