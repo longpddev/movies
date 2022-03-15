@@ -89,7 +89,7 @@ const SearchControl = ({
     ];
 
     const tabDataActive = tabs[activeTab];
-    console.log(tabDataActive.data);
+
     return (<div className="c-container my-8 flex flex-wrap">
         <TabBar
             tabs={tabs}
@@ -97,8 +97,8 @@ const SearchControl = ({
             setActiveTab={setActiveTab}
         />
         <SearchResult 
-            data={tabDataActive.data}
-            loadmore={() => tabDataActive.setPage(tabDataActive.currentPage + 1)}
+            data={tabDataActive}
+            loadmore={tabDataActive.setPage}
             render={tabDataActive.component} 
         />
     </div>);
