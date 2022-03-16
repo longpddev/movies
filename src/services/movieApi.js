@@ -34,6 +34,15 @@ export const TRENDING_TYPE = {
     ],
 }
 
+export const obToParam = (ob) => {
+    let result = '';
+    Object.keys(ob).forEach(key => {
+        result += `${key}=${ob[key]}&`;
+    })
+    result = result.replace(/&$/, '');
+    return result;
+}
+
 export const movieApi = createApi({
     reducerPath: 'movieApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
@@ -47,11 +56,18 @@ export const movieApi = createApi({
         getSearch: builder.query({
             query: ({type = 'movie', keyword, page = 1}) => createRequest(`search/${type}?page=${page}&query=${keyword}`)
         }),
+        getDiscover: builder.query({
+            query: ({type = 'movie', filter, page = 1}) => {
+                let params = obToParam(filter)
+                return createRequest(`discover/${type}?page=${page}&${params}`)
+            }
+        }),
     })
 });
 
 export const {
     useGetTrendingQuery,
     useGetSearchQuery,
+    useGetDiscoverQuery
 } = movieApi;
 

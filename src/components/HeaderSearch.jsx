@@ -6,21 +6,26 @@ import CloseIcon from '@mui/icons-material/Close';
 import clsx from 'clsx';
 import { useDebounce } from 'use-debounce';
 import { motion, AnimatePresence } from "framer-motion"
-
+import { useGetSearchQuery } from '../services/movieApi';
 const HeaderSearch = ({ isMobile, className }) => {
     const [text, setText] = useState('');
     const [ debounceVal ] = useDebounce(text, 300); 
     const [ isActive, setIsActive ] = useState(false);
+    const { data: searchResult, isFetching } = useGetSearchQuery({
+        type: 'keyword',
+        keyword: debounceVal
+    }, {
+        skip: debounceVal.length < 2
+    })
     const navigate = useNavigate();
-    const handleSubmit = useCallback((e) => {
-        e.preventDefault();
-        navigate(`/search?p=${text}`);
+    const redirectSearchPage = useCallback((p) => {
+        navigate(`/search?p=${p}`);
         setIsActive(false);
     })
-
-    useEffect(() => {
-        console.log(debounceVal);
-    }, [debounceVal]);
+    const handleSubmit = useCallback((e) => {
+        e.preventDefault();
+        redirectSearchPage(text)
+    })
 
     return (
         <div className={clsx('more', className)}>
@@ -46,14 +51,26 @@ const HeaderSearch = ({ isMobile, className }) => {
                             <input className="rounded-full p-2 pl-5 shadow-md border-0 outline-0 w-full" type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Search for a movie, Tv shows..."/>
                         </form>
                         <motion.div layout>
+                            {isFetching ? (
+                                <p>Loading...</p>
+                            ) : (
                             <div className="result">
-                                <div className="no-result w-full grid place-content-center min-h-[100px]">
-                                    <span className="font-bold text-3xl text-gray-500">No result</span>
-                                </div>
+                                {searchResult?.results?.length > 0 ? (
                                 <ul>
-                                    <li></li>
+                                    {searchResult.results.map(item => (
+                                        <li onClick={() => redirectSearchPage(item.name)} key={item.id}>{item.name}</li>
+                                    ))}
                                 </ul>
+                                ) : (
+                                    <div className="no-result w-full grid place-content-center min-h-[100px]">
+                                        <span className="font-bold text-3xl text-gray-500">No result</span>
+                                    </div>
+                                )}
+                                
+                                
                             </div>
+                            )}
+                            
                         </motion.div>
                     </div>
                 </motion.div>

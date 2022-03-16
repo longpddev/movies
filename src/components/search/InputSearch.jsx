@@ -10,7 +10,7 @@ const InputSearch = ({setSearch}) => {
     const [ debounceVal ] = useDebounce(query || "", 300);
     const setQuery = useCallback((value) => {
         if(value.length === 0) return navigate('/search');
-        navigate('/search1?p=' + value);
+        navigate('/search?p=' + value);
     }, []);
 
     useEffect(() => {
