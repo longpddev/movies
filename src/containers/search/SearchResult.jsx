@@ -1,6 +1,6 @@
 import React from 'react'
-import clsx from 'clsx';
-import Pagination from './Pagination';
+import Pagination from '@mui/material/Pagination';
+
 const SearchResult = ({data, render, loadmore}) => {
   return (
     <div className="w-full md:w-3/4 pl-0 md:pl-8">
@@ -8,9 +8,10 @@ const SearchResult = ({data, render, loadmore}) => {
 
       {data.data.length > 0 && (
         <Pagination
-          onClick={data.setPage}
-          maxPage={data.maxPage}
-          currentPage={data.currentPage}
+          className="mx-auto max-w-max"
+          count={data.maxPage}
+          page={data.currentPage}
+          onChange={(_, value) => data.setPage(value)}
         />
       )}
     </div>

@@ -2,9 +2,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const baseUrl = 'https://api.themoviedb.org/3/';
 const createRequest = (url) => {
-    if(!(/^.*\?.*$/.test(url))) url = url + '?';
-
-    if(/.*&.*/.test(url)) url = url + '&'
+    if(!(/^.*\?.*$/.test(url))) {
+        url = url + '?';
+    } else {
+        url = url + '&'
+    }
 
     return {
         url: url + "api_key=" + process.env.REACT_APP_API_KEY
@@ -21,7 +23,6 @@ export const getImage = (path, size) => {
     } else {
         size  = '/w' + size
     }
-
     return IMAGE_URL + size + path;
 }
 
@@ -62,12 +63,29 @@ export const movieApi = createApi({
                 return createRequest(`discover/${type}?page=${page}&${params}`)
             }
         }),
+        getGenres: builder.query({
+            query: () => createRequest(`/genre/movie/list`)
+        }),
+        getPerson: builder.query({
+            query: ({type = "popular", page = 1}) => createRequest(`/person/${type}?page=${page}`)
+        }),
+        getPersonDetail: builder.query({
+            query: ({id , type, page }) => {
+                let path = `/person/${id}`;
+                if(type) path += `/${type}`;
+                if(page) path += `?page=${page}`;
+                return createRequest(path);
+            }
+        }),
     })
 });
 
 export const {
     useGetTrendingQuery,
     useGetSearchQuery,
-    useGetDiscoverQuery
+    useGetDiscoverQuery,
+    useGetGenresQuery,
+    useGetPersonQuery,
+    useGetPersonDetailQuery
 } = movieApi;
 

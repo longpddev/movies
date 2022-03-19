@@ -8,11 +8,14 @@ import { getImage } from '../services/movieApi';
 import moment from 'moment';
 const Card = ({data}) => {
     return (
-        <div>
-            <NavLink to="/detail">
-                <div className="relative mb-6">
-                    {/* <img src={imageNotFound} className="rounded-lg min-h-[225px] px-10 bg-gray-200" alt="image" /> */}
-                    <img src={getImage(data.poster_path)} className="rounded-lg min-h-[225px]" alt="image" />
+        <div className="h-full">
+            <NavLink to="/detail" className="flex flex-col h-full">
+                <div className="relative mb-6 flex-1">
+                    {data.poster_path ? (
+                        <img src={getImage(data.poster_path)} className="rounded-lg min-h-[225px]" alt="image" />
+                    ) : (
+                        <img src={imageNotFound} className="rounded-lg min-h-[225px] px-16 bg-gray-200 h-full" alt="image" />
+                    )}
                     <div className="absolute bottom-0 left-2 translate-y-1/2">
                         <Score size="md" score={data.vote_average * 10} />
                     </div>

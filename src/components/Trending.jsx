@@ -6,27 +6,16 @@ import Card from './Card'
 import { useGetTrendingQuery, getImage, TRENDING_TYPE } from '../services/movieApi';
 
 const ListCard = memo(({data}) => (
-    <motion.div className="grid xl:grid-cols-7 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 ssm:grid-cols-2 grid-cols-1 gap-4 " layout>
-        <AnimatePresence>
+    <div className="grid xl:grid-cols-7 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 ssm:grid-cols-2 grid-cols-1 gap-4 ">
         {data?.results?.map((item, index) => (
-            <motion.div 
-                key={item.id} 
-                layout 
-                animate={{ opacity: 1 }} 
-                exit={{ opacity: 0 }} 
-                initial={{ opacity: 0 }}
-            >
-                <Card data={item} />
-            </motion.div>
+            <Card data={item} key={item.id} />
         ))}
-        </AnimatePresence>
-    </motion.div>
+    </div>
 ))
 
 const Trending = ({className}) => {
     const [ filter, setFilter ] = useState(TRENDING_TYPE.time_window[0]);
     const { data, isFetching } = useGetTrendingQuery(filter);
-
     return (
       <div className={clsx('c-container' ,className)}>
         <div className="flex mb-5">

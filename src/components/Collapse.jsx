@@ -13,9 +13,7 @@ const Collapse = ({ name, children, className }) => {
                 </motion.div>
             </div>
             <motion.div className="overflow-hidden" animate={{height: isCollapsed ? 0 : 'auto' }} >
-                <div className="py-3 px-4 border-t border-gray-300 ">
-                    {children}
-                </div>
+                {children}
             </motion.div>
         </div>
     )

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 
-import { InputSearch, useMultiSearch, TabBar, SearchResult } from '../components/search';
+import { InputSearch, useMultiSearch, TabBar, SearchResult } from '../containers/search';
 import CardFull from '../components/CardFull';
 import { getImage } from '../services/movieApi'; 
 const SearchControl = ({ 
@@ -32,7 +32,7 @@ const SearchControl = ({
             setPage: tv.setPage,
             component: (item, index) => ( <div className="card-list mb-4" key={item.id}>
                 <NavLink to="/" className="flex">
-                    <img src={getImage(item.poster_path, 'sm')} alt="" className="max-h-[145px]" />
+                    <img src={getImage(item.poster_path, 'sm')} alt="" className="max-h-[145px] object-cover" />
                     <div className="p-3 flex justify-center flex-col">
                         <p className="text-xl font-weight mb-1">{item.name}</p>
                         <p className="text-sm text-gray-400">{moment(new Date(item.first_air_date)).format("MMMM DD, YYYY")}</p>
@@ -49,7 +49,7 @@ const SearchControl = ({
             setPage: person.setPage,
             component: (item, index) => ( <div className="mb-3 flex" key={item.id}>
                 {item.profile_path ? (
-                    <img src={getImage(item.profile_path, 'sm')} alt="" className="h-[100px] w-[100px] rounded-md" />
+                    <img src={getImage(item.profile_path, 'sm')} alt="" className="h-[100px] w-[100px] rounded-md  object-cover" />
                 ) : (
                     <div className="h-[100px] w-[100px] rounded-md bg-gray-400"></div>
                 )}
@@ -69,7 +69,7 @@ const SearchControl = ({
             setPage: company.setPage,
             component: (item, index) => ( <div className="border-t border-gray-300 py-2 flex space-x-2" key={item.id}>
                 {item.logo_path ? (
-                    <img src={getImage(item.logo_path, 'sm')} alt="" className="max-h-[80px] block " />
+                    <img src={getImage(item.logo_path, 'sm')} alt="" className="max-h-[80px] block  object-cover" />
                 ) : (
                     <span className="text-xl">{item.name}</span>
                 )}

@@ -3,6 +3,10 @@
 @import './components/main.css';
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 .c-container {
     @apply container pl-4 pr-4 ml-auto mr-auto;
 }
@@ -32,6 +36,14 @@
 .limit-line-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.limit-line-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;

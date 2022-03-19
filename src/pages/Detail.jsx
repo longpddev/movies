@@ -7,8 +7,8 @@ import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import detailBanner from '../images/detailBanner.jpg';
 import movie from '../images/movie1.jpg';
 import CardActor from '../components/CardActor'
-import { TabMedia } from '../components/Tabs'
-
+import { TabMedia } from '../containers/Tabs'
+import SeconMenu from '../components/SeconMenu';
 const flickityOptions = {
     initialIndex: 0,
     pageDots: false,
@@ -20,15 +20,7 @@ const flickityOptions = {
 const Detail = () => {
   return (
     <>
-        <div className="bg-white w-full px-4">
-            <ul className="flex mx-auto max-w-max space-x-4">
-                {Array(3).fill(1).map((item, index) => (
-                    <li key={index}>
-                        <NavLink to="/" className="py-2 block px-4 border-b-4 border-transparent hover:border-sky-300">Link</NavLink>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <SeconMenu/>
         <div className="detail-banner" style={{ backgroundImage: `url(${detailBanner})` }}>
             <div className="detail-banner__inner">
                 <div className="c-container">
