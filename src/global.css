@@ -52,3 +52,31 @@ html {
 .card-list {
     @apply w-full rounded-lg border border-gray-300 shadow-md hover:shadow-lg transition-all relative bottom-0 hover:bottom-1 overflow-hidden;
 }
+
+.border-collapse {
+    border-collapse: separate;
+}
+
+table {
+    border-spacing: 0;
+}
+
+.c-dot {
+    @apply w-3 h-3 rounded-full relative;
+}
+.c-dot:before {
+    content: "";
+    transform: translate(-50%, -50%);
+    @apply absolute top-1/2 left-1/2 block w-[0.9rem] h-[0.9rem] rounded-full border-2 border-gray-600;
+}
+.c-dot:after {
+    content: "";
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
+    @apply absolute top-1/2 left-1/2 block bg-transparent w-2 h-2 rounded-full border-2 border-transparent;
+}
+
+.c-dot.active:after,
+.c-dot:hover:after {
+    @apply bg-gray-600;
+}

@@ -7,6 +7,7 @@ import Flickity from 'react-flickity-component';
 
 import { useGetPersonDetailQuery, getImage } from '../../services/movieApi';
 import Loading from '../../components/Loading';
+import { PersonActivity } from '../../containers/person';
 
 const flickityOptions = {
   initialIndex: 0,
@@ -108,6 +109,7 @@ const Main = () => {
                   </div>
               ))}
               </Flickity>
+              <PersonActivity idPerson={idPerson} />
           </div>
         </div>
       )}
