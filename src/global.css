@@ -61,6 +61,13 @@ table {
     border-spacing: 0;
 }
 
+.absolute-center {
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+
 .c-dot {
     @apply w-3 h-3 rounded-full relative;
 }
@@ -79,4 +86,31 @@ table {
 .c-dot.active:after,
 .c-dot:hover:after {
     @apply bg-gray-600;
+}
+
+.table-list {
+    @apply border border-gray-300 shadow-lg w-full border-collapse;
+}
+
+.table-list table {
+    @apply py-2 w-full border-collapse border-b border-gray-300;
+}
+
+.table-list .tr-lv-1:last-child table {
+    @apply border-0;
+}
+
+.dropdown {
+    cursor: pointer;
+}
+.dropdown:hover .dropdown-option{
+    pointer-events: all;
+    visibility: visible;
+    @apply opacity-100;
+}
+
+.dropdown-option {
+    pointer-events: none;
+    visibility: hidden;
+    @apply absolute top-[100%] border border-gray-300 min-w-max bg-white p-2 opacity-0 transition-all;
 }

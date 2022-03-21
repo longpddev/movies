@@ -1,24 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
-
+import { MovieTooltip } from '../movie';
 const ListTable = ({group = {}}) => {
+  const [ tooltipShow, setTooltipShow ] = useState(false);
   let getYear = Object.keys(group);
-  getYear.sort((a, b) => b - a);
+  getYear.sort((a, b) => {
+    if(a === '__') return -1;
+    return b - a;
+  });
   return (
-    <table className="border border-gray-300 shadow-lg w-full border-collapse">
+    <table className="table-list">
         <tbody>
             {getYear.map((year) => (
-              <tr className="p-2 " key={year}>
-                  <td className="border-0">
-                    <table className="py-2 w-full border-collapse border-b border-gray-300">
+              <tr className="p-2 tr-lv-1" key={year}>
+                  <td className="border-0 ">
+                    <table>
                       <tbody>
                         {group[year].map(item => (
                           <tr key={item.id}>
-                            <td className="p-2">{year}</td>
-                            <td>
-                              <button className="c-dot"></button>
+                            <td className="py-2 sm:px-4 px-2 sm:min-w-[5rem] text-center">{year}</td>
+                            <td className="text-center sm:min-w-[2rem] py-2 sm:px-4 px-2">
+                              <div className="flex"> 
+                                <MovieTooltip
+                                  movieId={item.id}
+                                  open={item.id === tooltipShow}
+                                >
+                                  <button className="c-dot inline" onClick={() => setTooltipShow(tooltipShow ? false : item.id)}></button>
+                                </MovieTooltip>
+                              </div>
                             </td>
-                            <td className="p-2">
+                            <td className="py-2 w-full">
                               <NavLink className="font-bold hover:text-sky-600" to={`/movie/${item.id}`}>{item.original_title}</NavLink>
                               <span className="text-sm text-gray-400"> as </span>
                               <span className="text-gray-500">{item.character}</span>
