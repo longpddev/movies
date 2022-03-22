@@ -53,7 +53,7 @@ const Category = ({discover = "movie"}) => {
     }, [state.page]);
 
     return (
-        <motion.div className="c-container mb-10 pt-10" initial={{ opacity: 0 }} animate={{ opacity: 1}}>
+        <div className="c-container mb-10 pt-10">
             <h1 className="text-4xl font-medium text-gray-800 mb-5">Category</h1>
             <div className="flex flex-wrap">
                 <div className="xl:w-1/5 w-full lg:w-1/4 mb-8 lg:mb-0">
@@ -69,7 +69,7 @@ const Category = ({discover = "movie"}) => {
                     ) : (
                         data?.results?.length > 0 ? (
                             <>
-                                <div className="grid xl:grid-cols-5 sm:grid-cols-3 ssm:grid-cols-2 grid-cols-1 gap-6 " layout>
+                                <div className="grid xl:grid-cols-5 sm:grid-cols-3 ssm:grid-cols-2 grid-cols-1 gap-6 " >
                                     {data.results.map((data, index) => (
                                         <motion.div key={data.id} initial={{opacity: 0}} animate={{ opacity: 1 }}>
                                             <Card data={data}/>
@@ -98,7 +98,7 @@ const Category = ({discover = "movie"}) => {
                     
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 

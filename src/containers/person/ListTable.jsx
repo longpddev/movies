@@ -25,7 +25,11 @@ const ListTable = ({group = {}}) => {
                                   movieId={item.id}
                                   open={item.id === tooltipShow}
                                 >
-                                  <button className="c-dot inline" onClick={() => setTooltipShow(tooltipShow ? false : item.id)}></button>
+                                  <button className="c-dot inline" onClick={() => {
+                                    if(item.id === tooltipShow) return setTooltipShow(false);
+
+                                    setTooltipShow(item.id)
+                                  }}></button>
                                 </MovieTooltip>
                               </div>
                             </td>

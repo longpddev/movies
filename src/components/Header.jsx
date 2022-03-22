@@ -11,46 +11,32 @@ import logo from '../images/logo.svg';
 const MenuList = [
   {
     label: "Movies",
-    link: "/movie",
+    link: "",
     children: [
       {
-        label: "All",
-        link: "/movide/full",
-      },
-      {
-        label: "All",
-        link: "/movide/full",
-      },
-      {
-        label: "All",
-        link: "/movide/full",
-      },
-      {
-        label: "All",
-        link: "/movide/full",
-      },
+        label: "Popular",
+        link: "/movie",
+      }
     ]
   },
   {
     label: "Tv Shows",
-    link: "/tv",
+    link: "",
     children: [
       {
-        label: "All",
-        link: "/tv/full",
-      },
+        label: "Popular",
+        link: "/tv",
+      }
+    ]
+  },
+  {
+    label: "People",
+    link: "",
+    children: [
       {
-        label: "All",
-        link: "/tv/full",
-      },
-      {
-        label: "All",
-        link: "/tv/full",
-      },
-      {
-        label: "All",
-        link: "/tv/full",
-      },
+        label: "Popular People",
+        link: "/person",
+      }
     ]
   }
 ];
@@ -84,11 +70,17 @@ const Header = () => {
             <ul className="flex flex-col menu-main bg-sky-700 py-5 px-4">
               {MenuList.map((item, index) => (
                 <li className="pb-2" key={index}>
-                  <NavLink className="text-white font-bold hover:underline" to={item.link}>{item.label}</NavLink>
+                  {item.link.length > 0 ? (
+                    <NavLink className="text-white font-bold hover:underline" to={item.link}>{item.label}</NavLink>
+                  ) : (
+                    <p className="text-white font-bold hover:underline">{item.label}</p>
+                  )}
                   {item.children.length > 0 && (
                     <ul className="flex flex-col pl-3">
                       {item.children.map((child, index) => (
-                        <li className="pb-1" key={index}><NavLink className=" text-sm whitespace-nowrap text-white font-bold hover:underline" to={child.link}>{child.label}</NavLink></li>                      
+                        <li className="pb-1" key={index}>
+                          <NavLink className=" text-sm whitespace-nowrap text-white font-bold hover:underline" to={child.link}>{child.label}</NavLink>
+                        </li>                      
                       ) )}
                     </ul>
                   )}
@@ -107,7 +99,12 @@ const Header = () => {
           <ul className="flex space-x-4 menu-main">
             {MenuList.map((item, index) => (
               <li className="items-center flex relative menu-l1" key={index}>
-                <NavLink className="text-white font-bold hover:underline hover:underline-offset-2" to={item.link}>{item.label}</NavLink>
+                {item.link.length > 0 ? (
+                  <NavLink className="text-white font-bold hover:underline hover:underline-offset-2" to={item.link}>{item.label}</NavLink>
+                ) : (
+                  <p className="text-white font-bold hover:underline hover:underline-offset-2 pointer">{item.label}</p>
+                )}
+                
                 {item.children.length > 0 && (
                   <ul className="submenu absolute top-full bg-white rounded-md shadow-sm p-2 min-w-[200px]">
                     {item.children.map((child, index) => (

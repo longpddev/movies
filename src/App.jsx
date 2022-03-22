@@ -9,7 +9,7 @@ import Category from './pages/Category';
 import Detail from './pages/Detail';
 import Search from './pages/Search';
 import Person from './pages/Person';
-import { PersonDetail } from './pages/PersonDetail';
+import { PersonDetail, PersonTranslate } from './pages/PersonDetail';
 import { LayoutPage } from './containers/person';
 const theme = createTheme({
   components: {
@@ -63,7 +63,7 @@ const App = () => {
             <Route index element={ <Person /> } />
             <Route path=":id">
               <Route index element={ <LayoutPage><PersonDetail /></LayoutPage> } />
-              <Route path="translations" element={ <LayoutPage><PersonDetail /></LayoutPage> } />
+              <Route path="translations" element={ <LayoutPage><PersonTranslate /></LayoutPage> } />
             </Route>
           </Route>
           <Route path="/404" element={ <Home /> } />

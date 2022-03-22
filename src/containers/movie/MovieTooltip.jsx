@@ -77,13 +77,13 @@ const MovieTooltipContent = ({ data }) => {
         </div>
         <div className="w-4/5 pl-4 flex flex-col">
           <div className="mb-2">
-            <NavLink to="/" className="text-xl font-bold text-white hover:underline">{data.title}</NavLink>
+            <NavLink to="/" className="text-xl font-bold text-white hover:underline">{data?.title}</NavLink>
             <span className="rounded-md ml-2 bg-sky-400 px-2 py-1 inline-flex items-center text-sm space-x-1">
               <StarIcon sx={{fontSize: "16px"}} />
-              <span className="leading-none mt-[0.15rem]">{data.vote_average}</span>
+              <span className="leading-none mt-[0.15rem]">{data?.vote_average}</span>
             </span>  
           </div>
-          <p className="text-white text-sm limit-line-2">{data.overview}</p>
+          <p className="text-white text-sm limit-line-2">{data?.overview}</p>
           <div className="space-x-3 mt-auto">
             <button className="relative bg-sky-400 p-4 hover:bg-gray-400 rounded-lg text-white flex-inline w-[2.5rem] h-[2.5rem]">
               <BookmarkIcon fontSize="small" className="absolute-center" />
