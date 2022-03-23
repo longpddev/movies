@@ -78,7 +78,16 @@ export const movieApi = createApi({
             }
         }),
         getMovies : builder.query({
-            query: ({ id }) => createRequest(`/movie/${id}`)
+            query: ({id , type, query }) => {
+                let path = `/movie/${id}`;
+                if(type) path += `/${type}`;
+
+                if(query) {
+                    path += "?" + obToParam(query);
+                }
+
+                return createRequest(path);
+            }
         })
     })
 });

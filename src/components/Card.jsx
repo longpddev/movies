@@ -9,7 +9,7 @@ import moment from 'moment';
 const Card = ({data}) => {
     return (
         <div className="h-full">
-            <NavLink to="/detail" className="flex flex-col h-full">
+            <NavLink to={`/movie/${data.id}`} className="flex flex-col h-full">
                 <div className="relative mb-6 flex-1">
                     {data.poster_path ? (
                         <img src={getImage(data.poster_path)} className="rounded-lg min-h-[225px]" alt="image" />

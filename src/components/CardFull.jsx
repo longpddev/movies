@@ -11,7 +11,7 @@ const CardFull = ({data, className}) => {
         'card-list',
         className
     )}>
-        <NavLink className="flex" to="/detail">
+        <NavLink className="flex" to={`/movie/${data.id}`}>
             <img src={getImage(data.poster_path, 200)} alt="" className="h-full max-h-[145px]" />
             <div className="p-3 flex flex-col justify-between">
                 <div>

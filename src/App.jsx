@@ -6,7 +6,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import StyleGuide from './pages/StyleGuide';
 import Category from './pages/Category';
-import Detail from './pages/Detail';
+import { MovieDetail } from './pages/movieDetail';
 import Search from './pages/Search';
 import Person from './pages/Person';
 import { PersonDetail, PersonTranslate } from './pages/PersonDetail';
@@ -46,14 +46,10 @@ const App = () => {
           <Route path="/" element={ <Home /> } />
           <Route path="movie">
             <Route index element={ <Category discover="movie" /> } />
-            <Route path=":slug" element={ <Home /> } />
+            <Route path=":id" element={ <MovieDetail /> } />
           </Route>
           <Route path="tv" >
             <Route index element={ <Category discover="tv" /> } />
-            <Route path=":slug" element={ <Home /> } />
-          </Route>
-          <Route path="detail">
-            <Route index element={ <Detail /> } />
             <Route path=":slug" element={ <Home /> } />
           </Route>
           <Route path="/about-us" element={ <Home /> } />
