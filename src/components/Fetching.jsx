@@ -1,6 +1,6 @@
 import React from 'react'
 import Loading from './Loading';
-const Fetching = ({isFetching = false, data, render}) => {
+const Fetching = ({isFetching = false, data, notFound, render}) => {
   return (
     <>
         {isFetching ? (
@@ -9,7 +9,9 @@ const Fetching = ({isFetching = false, data, render}) => {
             data ? (
                 render()
             ) : (
-                <div className="text-2xl text-center font-semibold">Not Found...</div>
+                notFound ? notFound : (
+                    <div className="text-2xl text-center font-semibold">Not Found...</div>
+                )
             )
         )}
     </>

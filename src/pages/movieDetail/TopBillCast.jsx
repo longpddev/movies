@@ -40,7 +40,7 @@ const TopBillCast = ({movieId}) => {
                     <Flickity options={flickityOptions}>
                         {getTop.map((item, index)=>(
                             <div className="px-2" key={index}>
-                                <CardActor data={item} key={index} />
+                                <CardActor data={item} key={index} className="max-w-[200px]" />
                             </div>
                         ))}
                     </Flickity>
