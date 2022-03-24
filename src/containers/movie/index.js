@@ -1,1 +1,1 @@
-export { default as MovieTooltip } from './MovieTooltip';
+export { default as MovieTooltip } from './MovieTooltip'

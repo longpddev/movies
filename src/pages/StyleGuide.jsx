@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Score from '../components/Score';
+import Score from '../components/Score'
 
 const StyleGuide = () => {
   return (
@@ -10,7 +10,7 @@ const StyleGuide = () => {
       <Score score={80} size="xl" />
       <Score score={70} />
       <Score score={60} />
-      <Score score={50} size='md' />
+      <Score score={50} size="md" />
       <Score score={40} />
       <Score score={30} />
       <Score score={20} />

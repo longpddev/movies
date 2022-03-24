@@ -1,65 +1,68 @@
 import React from 'react'
-import { styled } from '@mui/material/styles';
-import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import ReactLoading from 'react-loading';
-import { NavLink } from 'react-router-dom';
+import { styled } from '@mui/material/styles'
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip'
+import ReactLoading from 'react-loading'
+import { NavLink } from 'react-router-dom'
 
-import StarIcon from '@mui/icons-material/Star';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Image } from '../utilities';
-import { useGetMoviesQuery, getImage } from '../../services/movieApi';
+import StarIcon from '@mui/icons-material/Star'
+import BookmarkIcon from '@mui/icons-material/Bookmark'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import { Image } from '../utilities'
+import { useGetMoviesQuery, getImage } from '../../services/movieApi'
 
 const HtmlTooltip = styled(({ className, ...props }) => (
-    <Tooltip {...props} classes={{ popper: className }} />
-  ))(({ theme }) => ({
-    [`& .${tooltipClasses.tooltip}`]: {
-      backgroundColor: '#032541',
-      width: "100%",
-      maxWidth: "534px",
-      border: 'unset',
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: '#032541',
+    width: '100%',
+    maxWidth: '534px',
+    border: 'unset',
+    padding: 0,
+    fontSize: '1rem',
+    display: 'flex',
+    height: '170px',
+    '& .MuiTooltip-tooltip': {
       padding: 0,
-      fontSize: '1rem',
-      display: "flex",
-      height: "170px",
-      "& .MuiTooltip-tooltip": {
-        padding: 0
-      },
-      "& .MuiTooltip-arrow": {
-        color: "#032541"
-      }
     },
-  }));
+    '& .MuiTooltip-arrow': {
+      color: '#032541',
+    },
+  },
+}))
 
-const MovieTooltip = ({children, movieId, open, ...props}) => {
-  const { data, isFetching } = useGetMoviesQuery({
-    id: movieId,
-  }, {
-    skip: !open
-  })
+const MovieTooltip = ({ children, movieId, open, ...props }) => {
+  const { data, isFetching } = useGetMoviesQuery(
+    {
+      id: movieId,
+    },
+    {
+      skip: !open,
+    }
+  )
 
   return (
     <HtmlTooltip
-        placement="top"
-        arrow
-        disableFocusListener
-        disableHoverListener
-        disableTouchListener
-        open={open}
-        {...props}
-        title={
-            <>
-                {isFetching ? (
-                  <div className="flex w-full h-full justify-center items-center">
-                    <ReactLoading type="bubbles" />
-                  </div>
-                ) : (
-                  <MovieTooltipContent data={data} />
-                )}
-            </>
-        }
+      placement="top"
+      arrow
+      disableFocusListener
+      disableHoverListener
+      disableTouchListener
+      open={open}
+      {...props}
+      title={
+        <>
+          {isFetching ? (
+            <div className="flex w-full h-full justify-center items-center">
+              <ReactLoading type="bubbles" />
+            </div>
+          ) : (
+            <MovieTooltipContent data={data} />
+          )}
+        </>
+      }
     >
-        {children}
+      {children}
     </HtmlTooltip>
   )
 }
@@ -69,19 +72,26 @@ const MovieTooltipContent = ({ data }) => {
     <div className="p-3 w-full">
       <div className="flex w-full h-full">
         <div className=" w-1/5">
-          <Image 
-            src={data?.poster_path} 
-            className="w-full h-full rounded-md" 
+          <Image
+            src={data?.poster_path}
+            className="w-full h-full rounded-md"
             classImgNotFound="px-4 bg-sky-200"
           />
         </div>
         <div className="w-4/5 pl-4 flex flex-col">
           <div className="mb-2">
-            <NavLink to="/" className="text-xl font-bold text-white hover:underline">{data?.title}</NavLink>
+            <NavLink
+              to="/"
+              className="text-xl font-bold text-white hover:underline"
+            >
+              {data?.title}
+            </NavLink>
             <span className="rounded-md ml-2 bg-sky-400 px-2 py-1 inline-flex items-center text-sm space-x-1">
-              <StarIcon sx={{fontSize: "16px"}} />
-              <span className="leading-none mt-[0.15rem]">{data?.vote_average}</span>
-            </span>  
+              <StarIcon sx={{ fontSize: '16px' }} />
+              <span className="leading-none mt-[0.15rem]">
+                {data?.vote_average}
+              </span>
+            </span>
           </div>
           <p className="text-white text-sm limit-line-2">{data?.overview}</p>
           <div className="space-x-3 mt-auto">
@@ -98,7 +108,7 @@ const MovieTooltipContent = ({ data }) => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default MovieTooltip
