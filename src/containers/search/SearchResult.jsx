@@ -1,5 +1,5 @@
-import React from 'react'
-import Pagination from '@mui/material/Pagination'
+import React from "react"
+import Pagination from "@mui/material/Pagination"
 
 const SearchResult = ({ data, render, loadmore }) => {
   return (

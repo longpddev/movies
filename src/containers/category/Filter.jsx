@@ -1,16 +1,16 @@
-import React, { useReducer } from 'react'
-import { createPortal } from 'react-dom'
+import React, { useReducer } from "react"
+import { createPortal } from "react-dom"
 
-import Collapse from '../../components/Collapse'
-import CollapseWrap from '../../components/CollapseWrap'
-import SortFilter from './SortFilter'
-import ReleaseDatesFilter from './ReleaseDatesFilter'
-import AvailabilitiesFilter from './AvailabilitiesFilter'
-import GenresFilter from './GenresFilter'
-import UserScoreFilter from './UserScoreFilter'
-import UserVotesFilter from './UserVotesFilter'
-import RuntimeFilter from './RuntimeFilter'
-import KeywordFilter from './KeywordFilter'
+import Collapse from "../../components/Collapse"
+import CollapseWrap from "../../components/CollapseWrap"
+import SortFilter from "./SortFilter"
+import ReleaseDatesFilter from "./ReleaseDatesFilter"
+import AvailabilitiesFilter from "./AvailabilitiesFilter"
+import GenresFilter from "./GenresFilter"
+import UserScoreFilter from "./UserScoreFilter"
+import UserVotesFilter from "./UserVotesFilter"
+import RuntimeFilter from "./RuntimeFilter"
+import KeywordFilter from "./KeywordFilter"
 
 const Body = ({ children }) => createPortal(children, document.body)
 

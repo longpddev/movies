@@ -1,25 +1,25 @@
-import React from 'react'
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
+import React from "react"
+import { Routes, Route, NavLink, Navigate } from "react-router-dom"
+import { ThemeProvider, createTheme } from "@mui/material/styles"
 
-import Layout from './components/Layout'
-import Home from './pages/Home'
-import StyleGuide from './pages/StyleGuide'
-import Category from './pages/Category'
-import { MovieDetail } from './pages/movieDetail'
-import Search from './pages/Search'
-import Person from './pages/Person'
-import { PersonDetail, PersonTranslate } from './pages/PersonDetail'
-import { LayoutPage } from './containers/person'
+import Layout from "./components/Layout"
+import Home from "./pages/Home"
+import StyleGuide from "./pages/StyleGuide"
+import Category from "./pages/Category"
+import { MovieDetail } from "./pages/movieDetail"
+import Search from "./pages/Search"
+import Person from "./pages/Person"
+import { PersonDetail, PersonTranslate } from "./pages/PersonDetail"
+import { LayoutPage } from "./containers/person"
 const theme = createTheme({
   components: {
     MuiInputBase: {
       styleOverrides: {
         root: {
-          fontSize: '1rem',
-          padding: '0',
-          '& .MuiInputBase-input': {
-            padding: '8px',
+          fontSize: "1rem",
+          padding: "0",
+          "& .MuiInputBase-input": {
+            padding: "8px",
           },
         },
       },
@@ -27,9 +27,9 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          '& .MuiInputLabel-root': {
-            '&:not(.Mui-focused, .MuiFormLabel-filled)': {
-              transform: 'translate(14px, 9px) scale(1)',
+          "& .MuiInputLabel-root": {
+            "&:not(.Mui-focused, .MuiFormLabel-filled)": {
+              transform: "translate(14px, 9px) scale(1)",
             },
           },
         },

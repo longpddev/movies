@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useReducer } from 'react'
-import Checkbox from '@mui/material/Checkbox'
-import FormGroup from '@mui/material/FormGroup'
-import FormControlLabelOrigin from '@mui/material/FormControlLabel'
-import { styled } from '@mui/material/styles'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect, useReducer } from "react"
+import Checkbox from "@mui/material/Checkbox"
+import FormGroup from "@mui/material/FormGroup"
+import FormControlLabelOrigin from "@mui/material/FormControlLabel"
+import { styled } from "@mui/material/styles"
+import { motion, AnimatePresence } from "framer-motion"
 
 const FormControlLabel = styled(FormControlLabelOrigin)(({ theme }) => ({
-  '& .MuiTypography-root': {
-    fontSize: '14px',
+  "& .MuiTypography-root": {
+    fontSize: "14px",
   },
 }))
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'change':
+    case "change":
       return {
         ...state,
         ...action.payload,
@@ -25,23 +25,23 @@ function reducer(state, action) {
 
 const initialState = {
   flatrate: {
-    label: 'Flat rate',
+    label: "Flat rate",
     isChecked: false,
   },
   free: {
-    label: 'Free',
+    label: "Free",
     isChecked: false,
   },
   ads: {
-    label: 'Ads',
+    label: "Ads",
     isChecked: false,
   },
   rent: {
-    label: 'Rent',
+    label: "Rent",
     isChecked: false,
   },
   buy: {
-    label: 'Buy',
+    label: "Buy",
     isChecked: false,
   },
 }
@@ -53,18 +53,18 @@ const AvailabilitiesFilter = ({ action, dispatch }) => {
     let optionsValue = Object.keys(options).filter(
       (key) => options[key].isChecked
     )
-    let toString = optionsValue.toString(',')
+    let toString = optionsValue.toString(",")
 
     if (toString.length > 0) {
       dispatch({
-        type: 'addFilter',
+        type: "addFilter",
         value: {
-          with_watch_monetization_types: optionsValue.join(', '),
+          with_watch_monetization_types: optionsValue.join(", "),
         },
       })
     } else {
       dispatch({
-        type: 'removeFilter',
+        type: "removeFilter",
         value: {
           with_watch_monetization_types: true,
         },
@@ -80,7 +80,7 @@ const AvailabilitiesFilter = ({ action, dispatch }) => {
     })
 
     dispatch({
-      type: 'removeFilter',
+      type: "removeFilter",
       value: {
         with_watch_monetization_types: true,
       },
@@ -122,7 +122,7 @@ const AvailabilitiesFilter = ({ action, dispatch }) => {
                         onClick={() => {
                           options[key].isChecked = !options[key].isChecked
                           dispatchOption({
-                            type: 'change',
+                            type: "change",
                             payload: {
                               [key]: options[key],
                             },

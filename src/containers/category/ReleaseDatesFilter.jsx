@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react"
 
-import { DatePicker, LocalizationProvider } from '@mui/lab'
-import DateAdapter from '@mui/lab/AdapterMoment'
-import { TextField } from '@mui/material'
-import moment from 'moment'
+import { DatePicker, LocalizationProvider } from "@mui/lab"
+import DateAdapter from "@mui/lab/AdapterMoment"
+import { TextField } from "@mui/material"
+import moment from "moment"
 const ReleaseDatesFilter = ({ state, dispatch }) => {
   const [dateFrom, setDateFrom] = useState(null)
   const [dateTo, setDateTo] = useState(new moment())
@@ -12,10 +12,10 @@ const ReleaseDatesFilter = ({ state, dispatch }) => {
     if (!dateFrom || !dateTo) return
 
     dispatch({
-      type: 'addFilter',
+      type: "addFilter",
       value: {
-        'primary_release_date.gte': dateFrom.format('YYYY-MM-DD'),
-        'primary_release_date.lte': dateTo.format('YYYY-MM-DD'),
+        "primary_release_date.gte": dateFrom.format("YYYY-MM-DD"),
+        "primary_release_date.lte": dateTo.format("YYYY-MM-DD"),
       },
     })
   }, [dateFrom, dateTo])
@@ -31,7 +31,7 @@ const ReleaseDatesFilter = ({ state, dispatch }) => {
             renderInput={(params) => (
               <TextField
                 sx={{
-                  width: '100%',
+                  width: "100%",
                 }}
                 {...params}
               />
@@ -49,7 +49,7 @@ const ReleaseDatesFilter = ({ state, dispatch }) => {
               <TextField
                 {...params}
                 sx={{
-                  width: '100%',
+                  width: "100%",
                 }}
               />
             )}

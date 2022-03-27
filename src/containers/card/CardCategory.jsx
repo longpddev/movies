@@ -1,19 +1,24 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import Score from './Score'
+import React from "react"
+import { NavLink } from "react-router-dom"
+import Score from "./Score"
 
-import imageNotFound from '../images/image-notfound.svg'
-import imageSamble from '../images/movie1.jpg'
-
+import imageSamble from "../images/movie1.jpg"
+import { Image } from '../utilities'
 const CardCategory = () => {
   return (
     <div className="rounded-lg overflow-hidden shadow-sm border border-gray-200">
       <NavLink to="/detail">
         <div className="relative mb-6">
-          {/* <img src={imageNotFound} className="min-h-[225px] px-10 bg-gray-200" alt="image" /> */}
-          <img src={imageSamble} className="min-h-[225px]" alt="image" />
+          <Image
+            src={imageSamble}
+            className="min-h-[225px]"
+            alt="image"
+          />
           <div className="absolute bottom-0 left-2 translate-y-1/2">
-            <Score size="md" score={Math.round(Math.random() * 100)} />
+            <Score
+              size="md"
+              score={Math.round(Math.random() * 100)}
+            />
           </div>
         </div>
         <div className="bg-white p-2 pt-0">

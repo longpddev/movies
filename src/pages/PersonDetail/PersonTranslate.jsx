@@ -1,21 +1,21 @@
-import React from 'react'
-import Container from '../../components/Container'
-import { useParams } from 'react-router-dom'
+import React from "react"
+import Container from "../../components/Container"
+import { useParams } from "react-router-dom"
 
-import { useGetPersonDetailQuery } from '../../services/movieApi'
+import { useGetPersonDetailQuery } from "../../services/movieApi"
 const PersonTranslate = () => {
   const { id: idPerson } = useParams()
   const { data, isFetching } = useGetPersonDetailQuery(
     {
       id: idPerson,
-      type: 'translations',
+      type: "translations",
     },
     {
       skip: !idPerson,
     }
   )
   return (
-    <Container.Body>
+    <Container>
       <Container.Wrap>
         <Container.Sidebar>
           <div className="flex w-full">
@@ -31,7 +31,7 @@ const PersonTranslate = () => {
                   >
                     <span className="pointer">{item.name}</span>
                     <span className="px-3 rounded-full bg-gray-200">
-                      {item.iso_639_1 + '-' + item.iso_3166_1}
+                      {item.iso_639_1 + "-" + item.iso_3166_1}
                     </span>
                   </li>
                 ))}
@@ -49,7 +49,7 @@ const PersonTranslate = () => {
                 <div className="bg-gray-100 px-2 py-2">
                   <span>{item.name} </span>
                   <span className="text-gray-400">
-                    {item.iso_639_1 + '-' + item.iso_3166_1}
+                    {item.iso_639_1 + "-" + item.iso_3166_1}
                   </span>
                 </div>
                 <div className="p-2 whitespace-pre-line">
@@ -60,7 +60,7 @@ const PersonTranslate = () => {
           </div>
         </Container.Main>
       </Container.Wrap>
-    </Container.Body>
+    </Container>
   )
 }
 

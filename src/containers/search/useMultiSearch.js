@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { useGetSearchQuery } from '../../services/movieApi'
+import React, { useState } from "react"
+import { useGetSearchQuery } from "../../services/movieApi"
 const useMultiSearch = (search) => {
   const [moviesPage, setMoviesPage] = useState(1)
   const { data: moviesData } = useGetSearchQuery(
     {
-      type: 'movie',
+      type: "movie",
       keyword: search,
       page: moviesPage,
     },
@@ -16,7 +16,7 @@ const useMultiSearch = (search) => {
   const [companyPage, setCompanyPage] = useState(1)
   const { data: companyData } = useGetSearchQuery(
     {
-      type: 'company',
+      type: "company",
       keyword: search,
       page: companyPage,
     },
@@ -28,7 +28,7 @@ const useMultiSearch = (search) => {
   const [keywordPage, setKeywordPage] = useState(1)
   const { data: keywordData } = useGetSearchQuery(
     {
-      type: 'keyword',
+      type: "keyword",
       keyword: search,
       page: keywordPage,
     },
@@ -40,7 +40,7 @@ const useMultiSearch = (search) => {
   const [personPage, setPersonPage] = useState(1)
   const { data: personData } = useGetSearchQuery(
     {
-      type: 'person',
+      type: "person",
       keyword: search,
       page: personPage,
     },
@@ -52,7 +52,7 @@ const useMultiSearch = (search) => {
   const [tvPage, setTvPage] = useState(1)
   const { data: tvData } = useGetSearchQuery(
     {
-      type: 'tv',
+      type: "tv",
       keyword: search,
       page: tvPage,
     },

@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import InputKeyword from '../keyword/InputKeyword'
+import React, { useState, useEffect } from "react"
+import InputKeyword from "../keyword/InputKeyword"
 
 const KeywordFilter = ({ state, dispatch }) => {
   const [value, setValue] = useState([])
 
   useEffect(() => {
-    let toString = value.map((item) => item.id).join(', ')
+    let toString = value.map((item) => item.id).join(", ")
     if (toString.length > 0) {
       dispatch({
-        type: 'addFilter',
+        type: "addFilter",
         value: {
           with_keywords: toString,
         },
       })
     } else {
       dispatch({
-        type: 'removeFilter',
+        type: "removeFilter",
         value: {
           with_keywords: true,
         },

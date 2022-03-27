@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useReducer } from 'react'
-import { motion } from 'framer-motion'
-import Pagination from '@mui/material/Pagination'
+import React, { useEffect, useState, useReducer } from "react"
+import { motion } from "framer-motion"
+import Pagination from "@mui/material/Pagination"
 
-import Card from '../components/Card'
-import { useGetDiscoverQuery } from '../services/movieApi'
-import Loading from '../components/Loading'
-import { Filter } from '../containers/category'
+import CardMovie from "../containers/card/CardMovie"
+import { useGetDiscoverQuery } from "../services/movieApi"
+import Loading from "../components/Loading"
+import { Filter } from "../containers/category"
 
 const initialState = {
-  sort_by: 'popularity.desc',
+  sort_by: "popularity.desc",
   page: 1,
 }
 
@@ -20,15 +20,15 @@ const initialState = {
  */
 function reducer(state, action) {
   switch (action.type) {
-    case 'addFilter':
+    case "addFilter":
       return {
         ...state,
         ...action.value,
       }
-    case 'removeFilter':
+    case "removeFilter":
       const newState = { ...state }
       for (let key of Object.keys(action.value)) {
-        if (typeof newState[key] === 'undefined') continue
+        if (typeof newState[key] === "undefined") continue
         delete newState[key]
       }
 
@@ -38,7 +38,7 @@ function reducer(state, action) {
   }
 }
 
-const Category = ({ discover = 'movie' }) => {
+const Category = ({ discover = "movie" }) => {
   const [filter, setFilter] = useState({})
   const [state, dispatch] = useReducer(reducer, initialState)
   const { data, isFetching } = useGetDiscoverQuery(
@@ -78,7 +78,7 @@ const Category = ({ discover = 'movie' }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                   >
-                    <Card data={data} />
+                    <CardMovie data={data} />
                   </motion.div>
                 ))}
               </div>
@@ -88,7 +88,7 @@ const Category = ({ discover = 'movie' }) => {
                 page={data.page}
                 onChange={(_, page) => {
                   dispatch({
-                    type: 'addFilter',
+                    type: "addFilter",
                     value: {
                       page: page,
                     },

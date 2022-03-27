@@ -1,11 +1,11 @@
-import React from 'react'
-import detailBanner from '../../images/detailBanner.jpg'
-import movie from '../../images/movie1.jpg'
-import Score from '../../components/Score'
-import ListOutlinedIcon from '@mui/icons-material/ListOutlined'
-import { useGetMoviesQuery, getImage } from '../../services/movieApi'
-import Fetching from '../../components/Fetching'
-import moment from 'moment'
+import React from "react"
+import detailBanner from "../../images/detailBanner.jpg"
+import movie from "../../images/movie1.jpg"
+import Score from "../../components/Score"
+import ListOutlinedIcon from "@mui/icons-material/ListOutlined"
+import { useGetMoviesQuery, getImage } from "../../services/movieApi"
+import Fetching from "../../components/Fetching"
+import moment from "moment"
 
 const Banner = ({ movieId }) => {
   const { data, isFetching } = useGetMoviesQuery(
@@ -41,7 +41,7 @@ const Banner = ({ movieId }) => {
                   <div>
                     <h1 className="text-3xl text-white">
                       <strong>{data.title}</strong> (
-                      {moment(new Date(data.release_date)).format('YYYY')})
+                      {moment(new Date(data.release_date)).format("YYYY")})
                     </h1>
                     <p className="text-white text-sm space-x-3">
                       <span className="block-inline text-sm text-gray-600 px-1 rounded-sm border border-gray-600">
@@ -65,7 +65,7 @@ const Banner = ({ movieId }) => {
                       {Array(4)
                         .fill(1)
                         .map((item, index) => (
-                          <div className="rounded-full p-6 bg-sky-900 relative pointer">
+                          <div className="rounded-full p-6 bg-sky-900 relative pointer" key={index}>
                             <ListOutlinedIcon className="absolute block top-1/2 left-1/2 translate--1/2 text-white" />
                           </div>
                         ))}

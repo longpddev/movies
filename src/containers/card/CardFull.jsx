@@ -1,16 +1,19 @@
-import clsx from 'clsx'
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import sample from '../images/card1.jpg'
-import { getImage } from '../services/movieApi'
-import moment from 'moment'
+import clsx from "clsx"
+import React from "react"
+import { NavLink } from "react-router-dom"
+import { Image } from '../utilities'
+import moment from "moment"
 
 const CardFull = ({ data, className }) => {
   return (
-    <div className={clsx('card-list', className)}>
-      <NavLink className="flex" to={`/movie/${data.id}`}>
-        <img
-          src={getImage(data.poster_path, 200)}
+    <div className={clsx("card-list", className)}>
+      <NavLink
+        className="flex"
+        to={`/movie/${data.id}`}
+      >
+        <Image
+          src={data.poster_path}
+          size={200}
           alt=""
           className="h-full max-h-[145px]"
         />
@@ -20,7 +23,7 @@ const CardFull = ({ data, className }) => {
               <strong>{data.title}</strong>
             </p>
             <p className="text-gray-400 text-sm">
-              {moment(new Date(data.release_date)).format('DD MMMM YYYY')}
+              {moment(new Date(data.release_date)).format("DD MMMM YYYY")}
             </p>
           </div>
           <p className="text-sm limit-line-2">{data.overview}</p>

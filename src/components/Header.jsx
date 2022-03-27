@@ -1,48 +1,48 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import useMediaQuery from '@mui/material/useMediaQuery'
-import CloseIcon from '@mui/icons-material/Close'
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect } from "react"
+import { NavLink } from "react-router-dom"
+import useMediaQuery from "@mui/material/useMediaQuery"
+import CloseIcon from "@mui/icons-material/Close"
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined"
+import { motion, AnimatePresence } from "framer-motion"
 
-import HeaderSearch from './HeaderSearch'
-import logo from '../images/logo.svg'
+import HeaderSearch from "./HeaderSearch"
+import logo from "../images/logo.svg"
 
 const MenuList = [
   {
-    label: 'Movies',
-    link: '',
+    label: "Movies",
+    link: "",
     children: [
       {
-        label: 'Popular',
-        link: '/movie',
+        label: "Popular",
+        link: "/movie",
       },
     ],
   },
   {
-    label: 'Tv Shows',
-    link: '',
+    label: "Tv Shows",
+    link: "",
     children: [
       {
-        label: 'Popular',
-        link: '/tv',
+        label: "Popular",
+        link: "/tv",
       },
     ],
   },
   {
-    label: 'People',
-    link: '',
+    label: "People",
+    link: "",
     children: [
       {
-        label: 'Popular People',
-        link: '/person',
+        label: "Popular People",
+        link: "/person",
       },
     ],
   },
 ]
 
 const Header = () => {
-  const isMobile = useMediaQuery('(max-width:768.98px)')
+  const isMobile = useMediaQuery("(max-width:768.98px)")
   const [isOpenMenu, setIsOpenMenu] = useState(false)
 
   return (
@@ -65,8 +65,8 @@ const Header = () => {
           {isMobile && isOpenMenu && (
             <motion.div
               animate={{ left: 0 }}
-              initial={{ left: '-100%' }}
-              exit={{ left: '-100%' }}
+              initial={{ left: "-100%" }}
+              exit={{ left: "-100%" }}
               className="absolute z-50 top-full left-0 min-w-[300px]"
             >
               <ul className="flex flex-col menu-main bg-sky-700 py-5 px-4">

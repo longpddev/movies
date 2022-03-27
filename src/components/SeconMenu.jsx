@@ -1,7 +1,7 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-import clsx from 'clsx'
+import React from "react"
+import { NavLink } from "react-router-dom"
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown"
+import clsx from "clsx"
 
 const SeconMenu = ({ menu = [] }) => {
   return (
@@ -10,7 +10,7 @@ const SeconMenu = ({ menu = [] }) => {
         {menu.map((item, index) => (
           <li
             key={index}
-            className={clsx('relative menu-l1', {
+            className={clsx("relative menu-l1", {
               pointer: item?.children?.length,
             })}
           >

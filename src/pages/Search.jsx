@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import moment from 'moment'
+import React, { useState } from "react"
+import { NavLink } from "react-router-dom"
+import moment from "moment"
 
 import {
   InputSearch,
   useMultiSearch,
   TabBar,
   SearchResult,
-} from '../containers/search'
-import CardFull from '../components/CardFull'
-import { getImage } from '../services/movieApi'
+} from "../containers/search"
+import CardFull from "../containers/card/CardFull"
+import { getImage } from "../services/movieApi"
 const SearchControl = ({ movies, company, keyword, person, tv }) => {
   const [activeTab, setActiveTab] = useState(1)
   const tabs = [
     {
-      name: 'Movies',
+      name: "Movies",
       total_results: movies.data?.total_results || 0,
       data: movies.data?.results || [],
       currentPage: movies.page,
@@ -25,7 +25,7 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
       ),
     },
     {
-      name: 'Tv Shows',
+      name: "Tv Shows",
       total_results: tv.data?.total_results || 0,
       data: tv.data?.results || [],
       currentPage: tv.page,
@@ -35,14 +35,14 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
         <div className="card-list mb-4" key={item.id}>
           <NavLink to="/" className="flex">
             <img
-              src={getImage(item.poster_path, 'sm')}
+              src={getImage(item.poster_path, "sm")}
               alt=""
               className="max-h-[145px] object-cover"
             />
             <div className="p-3 flex justify-center flex-col">
               <p className="text-xl font-weight mb-1">{item.name}</p>
               <p className="text-sm text-gray-400">
-                {moment(new Date(item.first_air_date)).format('MMMM DD, YYYY')}
+                {moment(new Date(item.first_air_date)).format("MMMM DD, YYYY")}
               </p>
             </div>
           </NavLink>
@@ -50,7 +50,7 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
       ),
     },
     {
-      name: 'People',
+      name: "People",
       total_results: person.data?.total_results || 0,
       data: person.data?.results || [],
       currentPage: person.page,
@@ -60,7 +60,7 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
         <div className="mb-3 flex" key={item.id}>
           {item.profile_path ? (
             <img
-              src={getImage(item.profile_path, 'sm')}
+              src={getImage(item.profile_path, "sm")}
               alt=""
               className="h-[100px] w-[100px] rounded-md  object-cover"
             />
@@ -76,7 +76,7 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
       ),
     },
     {
-      name: 'Companies',
+      name: "Companies",
       total_results: company.data?.total_results || 0,
       data: company.data?.results || [],
       currentPage: company.page,
@@ -89,7 +89,7 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
         >
           {item.logo_path ? (
             <img
-              src={getImage(item.logo_path, 'sm')}
+              src={getImage(item.logo_path, "sm")}
               alt=""
               className="max-h-[80px] block  object-cover"
             />
@@ -100,7 +100,7 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
       ),
     },
     {
-      name: 'Keywords',
+      name: "Keywords",
       total_results: keyword.data?.total_results || 0,
       data: keyword.data?.results || [],
       currentPage: keyword.page,
@@ -132,7 +132,7 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
 }
 
 const Search1 = () => {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("")
   const { movies, company, keyword, person, tv } = useMultiSearch(search)
 
   return (

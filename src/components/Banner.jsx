@@ -1,16 +1,16 @@
-import clsx from 'clsx'
-import React, { useState, useCallback } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
-import banner from '../images/banner.jpg'
+import clsx from "clsx"
+import React, { useState, useCallback } from "react"
+import { Navigate, useNavigate } from "react-router-dom"
+import banner from "../images/banner.jpg"
 const Banner = ({ className }) => {
   const navigate = useNavigate()
-  const [text, setText] = useState('')
+  const [text, setText] = useState("")
   const handleSubmit = (e) => {
     e.preventDefault()
     navigate(`/search/?p=${text}`)
   }
   return (
-    <div className={clsx('banner c-container relative', className)}>
+    <div className={clsx("banner c-container relative", className)}>
       <img
         src={banner}
         alt="banner"

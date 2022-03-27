@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
-import SearchIcon from '@mui/icons-material/Search'
-import { Icon } from '@mui/material'
-import CloseIcon from '@mui/icons-material/Close'
-import clsx from 'clsx'
-import { useDebounce } from 'use-debounce'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useGetSearchQuery } from '../services/movieApi'
+import React, { useState, useEffect, useCallback } from "react"
+import { useNavigate } from "react-router-dom"
+import SearchIcon from "@mui/icons-material/Search"
+import { Icon } from "@mui/material"
+import CloseIcon from "@mui/icons-material/Close"
+import clsx from "clsx"
+import { useDebounce } from "use-debounce"
+import { motion, AnimatePresence } from "framer-motion"
+import { useGetSearchQuery } from "../services/movieApi"
 const HeaderSearch = ({ isMobile, className }) => {
-  const [text, setText] = useState('')
+  const [text, setText] = useState("")
   const [debounceVal] = useDebounce(text, 300)
   const [isActive, setIsActive] = useState(false)
   const { data: searchResult, isFetching } = useGetSearchQuery(
     {
-      type: 'keyword',
+      type: "keyword",
       keyword: debounceVal,
     },
     {
@@ -31,7 +31,7 @@ const HeaderSearch = ({ isMobile, className }) => {
   })
 
   return (
-    <div className={clsx('more', className)}>
+    <div className={clsx("more", className)}>
       <ul className="z-20 relative">
         <li onClick={() => setIsActive(!isActive)}>
           {isActive ? (
@@ -50,7 +50,7 @@ const HeaderSearch = ({ isMobile, className }) => {
       <AnimatePresence exitBeforeEnter initial={false}>
         {isActive && (
           <motion.div
-            animate={{ top: '100%', opacity: 1 }}
+            animate={{ top: "100%", opacity: 1 }}
             exit={{ top: 0, opacity: 0 }}
             initial={{ top: 0, opacity: 0 }}
             className="search-contain absolute inset-0 top-full z-10 bg-white p-5  min-h-max border-b border-gray-300"

@@ -1,6 +1,6 @@
-import React, { useState, useMemo, useEffect } from 'react'
-import Box from '@mui/material/Box'
-import Slider from '@mui/material/Slider'
+import React, { useState, useMemo, useEffect } from "react"
+import Box from "@mui/material/Box"
+import Slider from "@mui/material/Slider"
 
 const minDistance = 50
 const step = 50
@@ -20,9 +20,9 @@ const UserVotesFilter = ({ state, dispatch }) => {
 
   useEffect(() => {
     dispatch({
-      type: 'addFilter',
+      type: "addFilter",
       value: {
-        'vote_count.gte': value,
+        "vote_count.gte": value,
       },
     })
   }, [value])
@@ -33,7 +33,7 @@ const UserVotesFilter = ({ state, dispatch }) => {
         Minimum User Votes
       </p>
       <Slider
-        getAriaLabel={() => 'Minimum distance'}
+        getAriaLabel={() => "Minimum distance"}
         value={value}
         step={step}
         max={max}

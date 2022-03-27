@@ -1,6 +1,6 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import logo from '../images/logoFooter.svg'
+import React from "react"
+import { NavLink } from "react-router-dom"
+import logo from "../images/logoFooter.svg"
 const Footer = () => {
   return (
     <div className="bg-sky-900 min-h-[300px]">

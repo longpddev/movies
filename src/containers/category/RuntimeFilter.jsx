@@ -1,6 +1,6 @@
-import React, { useState, useMemo, useEffect } from 'react'
-import Box from '@mui/material/Box'
-import Slider from '@mui/material/Slider'
+import React, { useState, useMemo, useEffect } from "react"
+import Box from "@mui/material/Box"
+import Slider from "@mui/material/Slider"
 
 const minDistance = 40
 const step = 15
@@ -36,10 +36,10 @@ const RuntimeFilter = ({ state, dispatch }) => {
   useEffect(() => {
     const [timeMin, timeMax] = value
     dispatch({
-      type: 'addFilter',
+      type: "addFilter",
       value: {
-        'with_runtime.gte': timeMin,
-        'with_runtime.lte': timeMax,
+        "with_runtime.gte": timeMin,
+        "with_runtime.lte": timeMax,
       },
     })
   }, [value])
@@ -48,7 +48,7 @@ const RuntimeFilter = ({ state, dispatch }) => {
     <>
       <p className="text-md text-gray-600 font-light pb-3">Runtime</p>
       <Slider
-        getAriaLabel={() => 'Minimum distance'}
+        getAriaLabel={() => "Minimum distance"}
         value={value}
         step={15}
         max={max}

@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined'
-import clsx from 'clsx'
+import React, { useState } from "react"
+import { motion } from "framer-motion"
+import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined"
+import clsx from "clsx"
 const Collapse = ({ name, children, className }) => {
   const [isCollapsed, setIsCollapsed] = useState(false)
   return (
     <div
       className={clsx(
-        'shadow-lg rounded-lg border border-gray-300 overflow-hidden',
+        "shadow-lg rounded-lg border border-gray-300 overflow-hidden",
         className
       )}
     >
@@ -22,7 +22,7 @@ const Collapse = ({ name, children, className }) => {
       </div>
       <motion.div
         className="overflow-hidden"
-        animate={{ height: isCollapsed ? 0 : 'auto' }}
+        animate={{ height: isCollapsed ? 0 : "auto" }}
       >
         {children}
       </motion.div>

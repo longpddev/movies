@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import { MovieTooltip } from '../movie'
+import React, { useState } from "react"
+import { NavLink } from "react-router-dom"
+import { MovieTooltip } from "../movie"
 const ListTable = ({ group = {} }) => {
   const [tooltipShow, setTooltipShow] = useState(false)
   let getYear = Object.keys(group)
   getYear.sort((a, b) => {
-    if (a === '__') return -1
+    if (a === "__") return -1
     return b - a
   })
   return (

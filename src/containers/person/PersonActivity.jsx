@@ -1,22 +1,22 @@
-import React, { useMemo, useState } from 'react'
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
+import React, { useMemo, useState } from "react"
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown"
 
-import ListTable from './ListTable'
-import { useGetPersonDetailQuery } from '../../services/movieApi'
-import Fetching from '../../components/Fetching'
+import ListTable from "./ListTable"
+import { useGetPersonDetailQuery } from "../../services/movieApi"
+import Fetching from "../../components/Fetching"
 
 const creditsType = [
   {
-    name: 'All',
-    val: 'combined_credits',
+    name: "All",
+    val: "combined_credits",
   },
   {
-    name: 'TV Shows',
-    val: 'tv_credits',
+    name: "TV Shows",
+    val: "tv_credits",
   },
   {
-    name: 'Movies',
-    val: 'movie_credits',
+    name: "Movies",
+    val: "movie_credits",
   },
 ]
 
@@ -39,11 +39,11 @@ const PersonActivity = ({ idPerson }) => {
     data.cast.map((item) => {
       let year = item?.release_date
       if (!year) {
-        year = '__'
+        year = "__"
       } else {
         year = new Date(year).getFullYear()
       }
-      if (typeof resultYear[year] === 'undefined') resultYear[year] = []
+      if (typeof resultYear[year] === "undefined") resultYear[year] = []
       resultYear[year].push(item)
     })
 

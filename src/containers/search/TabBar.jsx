@@ -1,5 +1,5 @@
-import React from 'react'
-import clsx from 'clsx'
+import React from "react"
+import clsx from "clsx"
 
 const TabBar = ({ tabs, setActiveTab, activeTab }) => {
   return (
@@ -12,9 +12,9 @@ const TabBar = ({ tabs, setActiveTab, activeTab }) => {
           {tabs.map((item, index) => (
             <li
               className={clsx(
-                'py-2 px-4 hover:bg-gray-300 hover:font-weight pointer flex justify-between',
+                "py-2 px-4 hover:bg-gray-300 hover:font-weight pointer flex justify-between",
                 {
-                  'bg-gray-300': index === activeTab,
+                  "bg-gray-300": index === activeTab,
                 }
               )}
               onClick={() => setActiveTab(index)}

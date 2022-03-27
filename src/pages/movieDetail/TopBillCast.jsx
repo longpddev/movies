@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react'
-import Flickity from 'react-flickity-component'
-import 'flickity/css/flickity.css'
-import CardActor from '../../components/CardActor'
-import { useGetMoviesQuery } from '../../services/movieApi'
-import Fetching from '../../components/Fetching'
+import React, { useMemo } from "react"
+import Flickity from "react-flickity-component"
+import "flickity/css/flickity.css"
+import CardActor from "../../containers/card/CardActor"
+import { useGetMoviesQuery } from "../../services/movieApi"
+import Fetching from "../../components/Fetching"
 
 const flickityOptions = {
   initialIndex: 0,
@@ -11,13 +11,14 @@ const flickityOptions = {
   prevNextButtons: false,
   freeScroll: true,
   contain: true,
+  cellAlign: "left"
 }
 
 const TopBillCast = ({ movieId }) => {
   const { data, isFetching } = useGetMoviesQuery(
     {
       id: movieId,
-      type: 'credits',
+      type: "credits",
     },
     {
       skip: !movieId,
@@ -35,15 +36,22 @@ const TopBillCast = ({ movieId }) => {
 
   return (
     <>
-      <h3 className="text-xl mb-6">Series Cast</h3>
+      <h3 className="text-xl mb-6 font-bold">Series Cast</h3>
       <Fetching
         isFetching={isFetching}
         data={getTop}
         render={() => (
           <Flickity options={flickityOptions}>
             {getTop.map((item, index) => (
-              <div className="px-2" key={index}>
-                <CardActor data={item} key={index} className="max-w-[200px]" />
+              <div
+                className="pr-4"
+                key={index}
+              >
+                <CardActor
+                  data={item}
+                  key={index}
+                  className="w-[175px] w-full"
+                />
               </div>
             ))}
           </Flickity>

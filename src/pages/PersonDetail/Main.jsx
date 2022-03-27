@@ -1,14 +1,14 @@
-import React, { useMemo } from 'react'
-import { useParams } from 'react-router-dom'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import moment from 'moment'
-import Flickity from 'react-flickity-component'
+import React, { useMemo } from "react"
+import { useParams } from "react-router-dom"
+import TwitterIcon from "@mui/icons-material/Twitter"
+import InstagramIcon from "@mui/icons-material/Instagram"
+import moment from "moment"
+import Flickity from "react-flickity-component"
 
-import { useGetPersonDetailQuery, getImage } from '../../services/movieApi'
-import Loading from '../../components/Loading'
-import { PersonActivity } from '../../containers/person'
-
+import { useGetPersonDetailQuery, getImage } from "../../services/movieApi"
+import Loading from "../../components/Loading"
+import { PersonActivity } from "../../containers/person"
+import { Image } from '../../containers/utilities'
 const flickityOptions = {
   initialIndex: 0,
   pageDots: false,
@@ -31,7 +31,7 @@ const Main = () => {
   const { data: credits } = useGetPersonDetailQuery(
     {
       id: idPerson,
-      type: 'combined_credits',
+      type: "combined_credits",
     },
     {
       skip: idPerson ? false : true,
@@ -53,9 +53,10 @@ const Main = () => {
       {!isFetching && data && (
         <div className="flex flex-wrap">
           <div className="xl:w-1/5 w-full lg:w-1/4 mb-8 lg:mb-0">
-            <img
+            <Image
               className="rounded-lg w-full block mb-4"
-              src={getImage(data.profile_path)}
+              ratio={150}
+              src={data.profile_path}
               alt={data.name}
               title={data.name}
             />
@@ -83,14 +84,14 @@ const Main = () => {
               <div className="mb-3">
                 <p className="text-md font-semibold">Gender</p>
                 <p className="text-md text-gray-600">
-                  {data.gender === 1 ? 'Female' : 'Male'}
+                  {data.gender === 1 ? "Female" : "Male"}
                 </p>
               </div>
               <div className="mb-3">
                 <p className="text-md font-semibold">Birthdate</p>
                 <p className="text-md text-gray-600">
                   {data.birthday} (
-                  {moment(data.birthday, 'YYYY-MM-DD').fromNow()})
+                  {moment(data.birthday, "YYYY-MM-DD").fromNow()})
                 </p>
               </div>
               <div className="mb-3">
@@ -100,7 +101,10 @@ const Main = () => {
               <div className="mb-3">
                 <p className="text-md font-semibold">Also Known As</p>
                 {data?.also_known_as?.map((item) => (
-                  <p key={item} className="text-md text-gray-600">
+                  <p
+                    key={item}
+                    className="text-md text-gray-600"
+                  >
                     {item}
                   </p>
                 ))}
@@ -114,10 +118,15 @@ const Main = () => {
             <p className="text-xl font-semibold mb-2">Known For</p>
             <Flickity options={flickityOptions}>
               {knownFor.map((item, index) => (
-                <div className="px-2 max-w-[175px]" key={index}>
-                  <img
-                    src={getImage(item.poster_path, 200)}
+                <div
+                  className="px-2 w-[175px]"
+                  key={index}
+                >
+                  <Image
+                    size={200}
+                    src={item.poster_path}
                     alt={item.title}
+                    ratio={150}
                     className="w-full rounded-lg mb-2 block"
                   />
                   <p className="text-gray-700 text-sm text-center px-1">

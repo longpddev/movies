@@ -1,1 +1,1 @@
-export { default as TabMedia } from './TabMedia'
+export { default as TabMedia } from "./TabMedia"

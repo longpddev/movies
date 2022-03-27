@@ -114,3 +114,23 @@ table {
     visibility: hidden;
     @apply absolute top-[100%] border border-gray-300 min-w-max bg-white p-2 opacity-0 transition-all;
 }
+
+.flickity-enabled.is-draggable {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: all;
+    user-select: all;
+}
+
+a:hover {
+    @apply text-sky-400;
+}
+
+.empty-image {
+    object-position: center;
+    object-fit: scale-down;
+    @apply bg-gray-100;
+}
+
+.img-hidden {
+    display: none;
+}
