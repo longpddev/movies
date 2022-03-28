@@ -1,10 +1,4 @@
-import React from "react"
-import { useParams } from "react-router-dom"
-
-import SeconMenu from "../../components/SeconMenu"
-const LayoutPage = ({ children }) => {
-  const { id: idPerson } = useParams()
-  const menu = [
+const menu = (idPerson) => [
     {
       label: "Overview",
       link: "",
@@ -29,13 +23,6 @@ const LayoutPage = ({ children }) => {
         },
       ],
     },
-  ]
-  return (
-    <>
-      <SeconMenu menu={menu} />
-      {children}
-    </>
-  )
-}
+]
 
-export default LayoutPage
+export default menu;

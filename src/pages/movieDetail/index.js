@@ -1,1 +1,6 @@
 export { default as MovieDetail } from "./MainPage"
+export { default as MovieCastPage } from "./CastPage"
+export { default as MovieBackdropsPage } from "./BackdropsPage"
+export { default as MovieLogoPage } from "./LogoPage"
+export { default as MoviePostersPage } from "./PostersPage"
+export { default as MovieTrailersPage } from "./TrailersPage"

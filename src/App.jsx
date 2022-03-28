@@ -6,11 +6,17 @@ import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import StyleGuide from "./pages/StyleGuide"
 import Category from "./pages/Category"
-import { MovieDetail } from "./pages/movieDetail"
+import { 
+  MovieDetail, 
+  MovieCastPage, 
+  MovieLogoPage, 
+  MoviePostersPage, 
+  MovieTrailersPage,
+  MovieBackdropsPage
+} from "./pages/movieDetail"
 import Search from "./pages/Search"
 import Person from "./pages/Person"
 import { PersonDetail, PersonTranslate } from "./pages/PersonDetail"
-import { LayoutPage } from "./containers/person"
 const theme = createTheme({
   components: {
     MuiInputBase: {
@@ -43,42 +49,98 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={<Home />}
+          />
           <Route path="movie">
-            <Route index element={<Category discover="movie" />} />
-            <Route path=":id" element={<MovieDetail />} />
+            <Route
+              index
+              element={<Category discover="movie" />}
+            />
+            <Route
+              path=":id"
+            >
+              <Route
+                index
+                element={<MovieDetail />}
+              />
+              <Route
+                path="cast"
+                element={<MovieCastPage />}
+              />
+              <Route
+                path="logo"
+                element={<MovieLogoPage />}
+              />
+              <Route
+                path="backdrops"
+                element={<MovieBackdropsPage />}
+              />
+              <Route
+                path="posters"
+                element={<MoviePostersPage />}
+              />
+              <Route
+                path="trailers"
+                element={<MovieTrailersPage />}
+              />
+            </Route>
           </Route>
           <Route path="tv">
-            <Route index element={<Category discover="tv" />} />
-            <Route path=":slug" element={<Home />} />
+            <Route
+              index
+              element={<Category discover="tv" />}
+            />
+            <Route
+              path=":slug"
+              element={<Home />}
+            />
           </Route>
-          <Route path="/about-us" element={<Home />} />
-          <Route path="/contact-us" element={<Home />} />
-          <Route path="/search" element={<Search />} />
+          <Route
+            path="/about-us"
+            element={<Home />}
+          />
+          <Route
+            path="/contact-us"
+            element={<Home />}
+          />
+          <Route
+            path="/search"
+            element={<Search />}
+          />
           <Route path="person">
-            <Route index element={<Person />} />
+            <Route
+              index
+              element={<Person />}
+            />
             <Route path=":id">
               <Route
                 index
                 element={
-                  <LayoutPage>
-                    <PersonDetail />
-                  </LayoutPage>
+                  <PersonDetail />
                 }
               />
               <Route
                 path="translations"
                 element={
-                  <LayoutPage>
-                    <PersonTranslate />
-                  </LayoutPage>
+                  <PersonTranslate />
                 }
               />
             </Route>
           </Route>
-          <Route path="/404" element={<Home />} />
-          <Route path="/style-guide" element={<StyleGuide />} />
-          <Route path="*" element={<Navigate to="/404" />} />
+          <Route
+            path="/404"
+            element={<Home />}
+          />
+          <Route
+            path="/style-guide"
+            element={<StyleGuide />}
+          />
+          <Route
+            path="*"
+            element={<Navigate to="/404" />}
+          />
         </Routes>
       </Layout>
     </ThemeProvider>

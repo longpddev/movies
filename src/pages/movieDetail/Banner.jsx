@@ -1,12 +1,11 @@
 import React from "react"
-import detailBanner from "../../images/detailBanner.jpg"
-import movie from "../../images/movie1.jpg"
 import Score from "../../components/Score"
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined"
 import { useGetMoviesQuery, getImage } from "../../services/movieApi"
 import Fetching from "../../components/Fetching"
 import moment from "moment"
-
+import Skeleton from '@mui/material/Skeleton';
+import { Image } from '../../containers/utilities'
 const Banner = ({ movieId }) => {
   const { data, isFetching } = useGetMoviesQuery(
     {
@@ -17,11 +16,17 @@ const Banner = ({ movieId }) => {
     }
   )
 
-  console.log(data)
   return (
     <Fetching
       isFetching={isFetching}
       data={data}
+      loading={ 
+        <Skeleton
+          variant="rectangular"
+          animation='wave'
+          height={350}
+        /> 
+      }
       render={() => (
         <div
           className="detail-banner"
@@ -31,8 +36,9 @@ const Banner = ({ movieId }) => {
             <div className="c-container">
               <div className="flex flex-wrap py-8">
                 <div className="sm:w-1/4 w-full">
-                  <img
-                    src={getImage(data.poster_path)}
+                  <Image
+                    src={data.poster_path}
+                    ratio={150}
                     alt=""
                     className="w-full rounded-lg"
                   />
@@ -60,12 +66,18 @@ const Banner = ({ movieId }) => {
                     </p>
                     <div className="my-5 flex flex-wrap items-center space-x-5">
                       <div>
-                        <Score score={data.vote_average * 10} size="xl" />
+                        <Score
+                          score={data.vote_average * 10}
+                          size="xl"
+                        />
                       </div>
                       {Array(4)
                         .fill(1)
                         .map((item, index) => (
-                          <div className="rounded-full p-6 bg-sky-900 relative pointer" key={index}>
+                          <div
+                            className="rounded-full p-6 bg-sky-900 relative pointer"
+                            key={index}
+                          >
                             <ListOutlinedIcon className="absolute block top-1/2 left-1/2 translate--1/2 text-white" />
                           </div>
                         ))}

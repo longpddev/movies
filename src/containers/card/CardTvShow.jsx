@@ -29,7 +29,7 @@ const CardTvShow = ({ data }) => {
             <strong>{data.name}</strong>
           </p>
           <p className="font-light text-gray-600 text-sm">
-            {moment(new Date(data.release_date)).format("DD MMMM YYYY")}
+            {moment(new Date(data.first_air_date)).format("DD MMMM YYYY")}
           </p>
         </div>
       </NavLink>

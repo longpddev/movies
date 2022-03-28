@@ -1,10 +1,10 @@
 import React from "react"
 import Loading from "./Loading"
-const Fetching = ({ isFetching = false, data, notFound, render }) => {
+const Fetching = ({ isFetching = false, data, loading, notFound, render }) => {
   return (
     <>
       {isFetching ? (
-        <Loading />
+        loading || <Loading />
       ) : data ? (
         render()
       ) : notFound ? (

@@ -16,6 +16,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "all-iso-language-codes": "^1.0.4",
     "clsx": "^1.1.1",
     "eslint-config-react-app": "^7.0.0",
     "framer-motion": "^6.2.8",

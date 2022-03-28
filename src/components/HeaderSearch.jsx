@@ -36,7 +36,7 @@ const HeaderSearch = ({ isMobile, className }) => {
         <li onClick={() => setIsActive(!isActive)}>
           {isActive ? (
             <CloseIcon
-              className="text-sky-400"
+              className="text-orange-500"
               sx={{ fontSize: isMobile ? 25 : 30 }}
             />
           ) : (
@@ -47,7 +47,10 @@ const HeaderSearch = ({ isMobile, className }) => {
           )}
         </li>
       </ul>
-      <AnimatePresence exitBeforeEnter initial={false}>
+      <AnimatePresence
+        exitBeforeEnter
+        initial={false}
+      >
         {isActive && (
           <motion.div
             animate={{ top: "100%", opacity: 1 }}
@@ -56,7 +59,10 @@ const HeaderSearch = ({ isMobile, className }) => {
             className="search-contain absolute inset-0 top-full z-10 bg-white p-5  min-h-max border-b border-gray-300"
           >
             <div className="c-container">
-              <form action="" onSubmit={handleSubmit}>
+              <form
+                action=""
+                onSubmit={handleSubmit}
+              >
                 <input
                   className="rounded-full p-2 pl-5 shadow-md border-0 outline-0 w-full"
                   type="text"

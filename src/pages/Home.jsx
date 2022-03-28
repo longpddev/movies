@@ -4,7 +4,6 @@ import Score from "../components/Score"
 import Banner from "../components/Banner"
 import Popular from "../components/Popular"
 import Trending from "../components/Trending"
-import LeaderBoard from "../components/LeaderBoard"
 
 const Home = () => {
   return (
@@ -12,7 +11,6 @@ const Home = () => {
       <Banner className="mb-8" />
       <Popular className="mb-8"/>
       <Trending className="mb-8" />
-      <LeaderBoard />
     </div>
   )
 }

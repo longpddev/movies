@@ -32,9 +32,9 @@ const Trending = ({ className }) => {
   const { data, isFetching } = useGetTrendingQuery(filter)
   return (
     <div className={clsx("c-container", className)}>
-      <div className="flex mb-5">
-        <h3 className="text-2xl font-bold mr-5">Trending</h3>
-        <div className="flex border border-gray-600 rounded-full">
+      <div className="flex flex-wrap">
+        <h3 className="text-2xl  mb-5 font-bold mr-5">Trending</h3>
+        <div className=" mb-5 flex border border-gray-600 rounded-full">
           {TRENDING_TYPE.time_window.map((item, index) => (
             <button
               key={index}

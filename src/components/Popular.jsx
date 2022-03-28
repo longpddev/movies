@@ -45,9 +45,9 @@ const Popular = ({ className }) => {
   const data = filter === 'movies' ? movies : tvShow;
   return (
     <div className={clsx("c-container", className)}>
-      <div className="flex mb-5">
-        <h3 className="text-2xl font-bold mr-5">What's Popular</h3>
-        <div className="flex border border-gray-600 rounded-full">
+      <div className="flex flex-wrap">
+        <h3 className="text-2xl  mb-5 font-bold mr-5">What's Popular</h3>
+        <div className="flex border  mb-5 border-gray-600 rounded-full">
           {Object.keys(filters).map((key) => (
             <button
               key={key}
@@ -75,7 +75,7 @@ const Popular = ({ className }) => {
         data={data?.results?.length > 0}
         render={() => (
             <ListCard
-              mediaType={filter}
+              mediaType={filter === 'movies' ? "movie" : "tv"}
               data={data}
             />
           )}
