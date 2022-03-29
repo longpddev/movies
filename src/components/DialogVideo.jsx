@@ -1,10 +1,6 @@
 import React, { useState } from "react"
 import ReactPlayer from "react-player"
 import Dialog from "@mui/material/Dialog"
-import DialogActions from "@mui/material/DialogActions"
-import DialogContent from "@mui/material/DialogContent"
-import DialogContentText from "@mui/material/DialogContentText"
-import DialogTitle from "@mui/material/DialogTitle"
 
 const DialogVideo = ({ code, type = "youtube", isOpen = false, children, wrapClass }) => {
   const [open, setOpen] = useState(isOpen)

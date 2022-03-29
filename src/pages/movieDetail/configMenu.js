@@ -30,8 +30,8 @@ const menu = (idMovie) => [
           link: `/movie/${idMovie}/posters`,
         },
         {
-          label: "Trailers",
-          link: `/movie/${idMovie}/trailers`,
+          label: "Video",
+          link: `/movie/${idMovie}/video`,
         },
       ],
     },

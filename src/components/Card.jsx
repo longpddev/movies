@@ -14,10 +14,13 @@ const Card = ({ name, headColor = "bg-sky-400", headerClass = "font-bold text-ce
   )
 }
 
-const Item = ({ className, children }) => {
+const Item = ({ className, children, active }) => {
   return (
     <li
-      className={clsx("flex justify-between px-3 py-2 hover:bg-gray-100", className)}
+      className={clsx("flex justify-between px-3 py-2 hover:bg-gray-100", className, {
+        "bg-gray-200": active,
+        "hover:bg-gray-200": active
+      })}
     >
       {children}
     </li>

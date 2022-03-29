@@ -11,7 +11,7 @@ import {
   MovieCastPage, 
   MovieLogoPage, 
   MoviePostersPage, 
-  MovieTrailersPage,
+  MovieVideoPage,
   MovieBackdropsPage
 } from "./pages/movieDetail"
 import Search from "./pages/Search"
@@ -82,8 +82,8 @@ const App = () => {
                 element={<MoviePostersPage />}
               />
               <Route
-                path="trailers"
-                element={<MovieTrailersPage />}
+                path="video"
+                element={<MovieVideoPage />}
               />
             </Route>
           </Route>
