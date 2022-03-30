@@ -9,7 +9,12 @@ const Loading = ({
   width = 64,
 }) => (
   <div className={clsx("flex justify-center px-2 py-1 w-full", className)}>
-    <ReactLoading type={type} color={color} height={height} width={width} />
+    <ReactLoading
+      type={type}
+      color={color}
+      height={height}
+      width={width}
+    />
   </div>
 )
 

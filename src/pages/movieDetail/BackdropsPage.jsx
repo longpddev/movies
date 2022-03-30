@@ -10,8 +10,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 
 const BackdropsPage = () => {
-    const { movieId, data: movieData, isFetching: isFetchingMovie } = useContext(movieContext)
-    const { data, isFetching: isFetchingImages } = useGetMoviesQuery({
+    const { movieId } = useContext(movieContext)
+    const { data } = useGetMoviesQuery({
         id: movieId,
         type: "images"
     }, {
@@ -42,6 +42,7 @@ const BackdropsPage = () => {
         <Container.Wrap>
             <Container.Sidebar>
                 <Card
+                  className="snap"
                   name="Backdrops"
                   headerClass="font-bold"
                 >

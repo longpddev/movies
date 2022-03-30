@@ -21,7 +21,11 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
       maxPage: movies.data?.total_pages || 0,
       setPage: movies.setPage,
       component: (item, index) => (
-        <CardFull className="mb-4" data={item} key={item.id} />
+        <CardFull
+          className="mb-4"
+          data={item}
+          key={item.id}
+        />
       ),
     },
     {
@@ -32,8 +36,14 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
       maxPage: tv.data?.total_pages || 0,
       setPage: tv.setPage,
       component: (item, index) => (
-        <div className="card-list mb-4" key={item.id}>
-          <NavLink to="/" className="flex">
+        <div
+          className="card-list mb-4"
+          key={item.id}
+        >
+          <NavLink
+            to="/"
+            className="flex"
+          >
             <img
               src={getImage(item.poster_path, "sm")}
               alt=""
@@ -57,7 +67,10 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
       maxPage: person.data?.total_pages || 0,
       setPage: person.setPage,
       component: (item, index) => (
-        <div className="mb-3 flex" key={item.id}>
+        <div
+          className="mb-3 flex"
+          key={item.id}
+        >
           {item.profile_path ? (
             <img
               src={getImage(item.profile_path, "sm")}
@@ -120,8 +133,12 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
   const tabDataActive = tabs[activeTab]
 
   return (
-    <div className="c-container my-8 flex flex-wrap">
-      <TabBar tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+    <div className="c-container my-8 flex flex-wrap ">
+      <TabBar
+        tabs={tabs}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
       <SearchResult
         data={tabDataActive}
         loadmore={tabDataActive.setPage}

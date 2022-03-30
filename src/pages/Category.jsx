@@ -56,7 +56,7 @@ const Category = ({ discover = "movie" }) => {
   }, [state.page])
 
   return (
-    <div className="c-container mb-10 pt-10">
+    <div className="c-container mb-10 pt-10 ">
       <h1 className="text-4xl font-medium text-gray-800 mb-5">Category</h1>
       <div className="flex flex-wrap">
         <div className="xl:w-1/5 w-full lg:w-1/4 mb-8 lg:mb-0">

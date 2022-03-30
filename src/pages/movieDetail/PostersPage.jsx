@@ -9,8 +9,8 @@ import CardMui from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 const PostersPage = () => {
-    const { movieId, data: movieData, isFetching: isFetchingMovie } = useContext(movieContext)
-    const { data, isFetching: isFetchingImages } = useGetMoviesQuery({
+    const { movieId } = useContext(movieContext)
+    const { data } = useGetMoviesQuery({
         id: movieId,
         type: "images"
     }, {
@@ -41,6 +41,7 @@ const PostersPage = () => {
             <Container.Sidebar>
                 <Card
                   name="posters"
+                  className="snap"
                   headerClass="font-bold"
                 >
                     {Object.keys(language).map(key => (

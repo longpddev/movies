@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import millify from "millify"
 import isoConv from "iso-language-converter"
 
@@ -14,7 +14,6 @@ import Tag from '../../components/Tag'
 import Layout, { movieContext } from './Layout'
 const MainPage = () => {
   const { movieId, data, isFetching } = useContext(movieContext)
-  console.log(useContext(movieContext))
   const { data: keywords } = useGetMoviesQuery({
     type: "keywords",
     id: movieId,

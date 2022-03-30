@@ -31,10 +31,13 @@ const SeconMenu = ({ menu = [] }) => {
 
             <ul className="submenu absolute top-full bg-white rounded-md shadow-sm p-2 min-w-[200px]">
               {item?.children?.map((child, index) => (
-                <li className="" key={index}>
+                <li
+                  className=""
+                  key={index}
+                >
                   {child?.link ? (
                     <NavLink
-                      className="w-full block text-sm whitespace-nowrap bg-gray-50 border-t border-b border-gray-100 hover:bg-gray-300 px-3 py-2 rounded-md"
+                      className="w-full block text-sm whitespace-nowrap bg-gray-50 border-t border-b border-gray-100 hover:bg-gray-200 px-3 py-2 rounded-md"
                       to={child.link}
                     >
                       {child.label}

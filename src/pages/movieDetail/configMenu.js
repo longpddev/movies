@@ -8,8 +8,8 @@ const menu = (idMovie) => [
           link: `/movie/${idMovie}/cast`,
         },
         {
-          label: "Changes",
-          link: `/movie/${idMovie}/changes`,
+          label: "Release Dates",
+          link: `/movie/${idMovie}/release`,
         },
       ],
     },
@@ -20,10 +20,6 @@ const menu = (idMovie) => [
         {
           label: "Backdrops",
           link: `/movie/${idMovie}/backdrops`,
-        },
-        {
-          label: "Logo",
-          link: `/movie/${idMovie}/logo`,
         },
         {
           label: "Posters",

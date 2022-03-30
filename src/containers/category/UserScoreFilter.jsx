@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useEffect } from "react"
-import Box from "@mui/material/Box"
 import Slider from "@mui/material/Slider"
 
 const minDistance = 10

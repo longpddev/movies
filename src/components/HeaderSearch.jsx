@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import SearchIcon from "@mui/icons-material/Search"
-import { Icon } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import clsx from "clsx"
 import { useDebounce } from "use-debounce"

@@ -1,5 +1,4 @@
-import React, { useReducer } from "react"
-import { createPortal } from "react-dom"
+import React from "react"
 
 import Collapse from "../../components/Collapse"
 import CollapseWrap from "../../components/CollapseWrap"
@@ -11,38 +10,67 @@ import UserScoreFilter from "./UserScoreFilter"
 import UserVotesFilter from "./UserVotesFilter"
 import RuntimeFilter from "./RuntimeFilter"
 import KeywordFilter from "./KeywordFilter"
-
-const Body = ({ children }) => createPortal(children, document.body)
+import Body from '../../components/Body'
 
 const Filter = ({ onSearch, state, dispatch }) => {
   return (
     <>
-      <Collapse className="mb-3" name="Sort">
+      <Collapse
+        className="mb-3 "
+        name="Sort"
+      >
         <CollapseWrap>
-          <SortFilter state={state} dispatch={dispatch} />
+          <SortFilter
+            state={state}
+            dispatch={dispatch}
+          />
         </CollapseWrap>
       </Collapse>
-      <Collapse className="mb-3" name="Filters">
+      <Collapse
+        className="mb-3"
+        name="Filters"
+      >
         <CollapseWrap>
-          <AvailabilitiesFilter state={state} dispatch={dispatch} />
+          <AvailabilitiesFilter
+            state={state}
+            dispatch={dispatch}
+          />
         </CollapseWrap>
         <CollapseWrap>
-          <ReleaseDatesFilter state={state} dispatch={dispatch} />
+          <ReleaseDatesFilter
+            state={state}
+            dispatch={dispatch}
+          />
         </CollapseWrap>
         <CollapseWrap>
-          <GenresFilter state={state} dispatch={dispatch} />
+          <GenresFilter
+            state={state}
+            dispatch={dispatch}
+          />
         </CollapseWrap>
         <CollapseWrap>
-          <UserScoreFilter state={state} dispatch={dispatch} />
+          <UserScoreFilter
+            state={state}
+            dispatch={dispatch}
+          />
         </CollapseWrap>
         <CollapseWrap>
-          <UserVotesFilter state={state} dispatch={dispatch} />
+          <UserVotesFilter
+            state={state}
+            dispatch={dispatch}
+          />
         </CollapseWrap>
         <CollapseWrap>
-          <RuntimeFilter state={state} dispatch={dispatch} />
+          <RuntimeFilter
+            state={state}
+            dispatch={dispatch}
+          />
         </CollapseWrap>
         <CollapseWrap>
-          <KeywordFilter state={state} dispatch={dispatch} />
+          <KeywordFilter
+            state={state}
+            dispatch={dispatch}
+          />
         </CollapseWrap>
       </Collapse>
       <button

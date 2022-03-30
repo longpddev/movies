@@ -61,7 +61,10 @@ const Header = () => {
           </div>
         )}
 
-        <AnimatePresence exitBeforeEnter initial={false}>
+        <AnimatePresence
+          exitBeforeEnter
+          initial={false}
+        >
           {isMobile && isOpenMenu && (
             <motion.div
               animate={{ left: 0 }}
@@ -71,7 +74,10 @@ const Header = () => {
             >
               <ul className="flex flex-col menu-main bg-sky-700 py-5 px-4">
                 {MenuList.map((item, index) => (
-                  <li className="pb-2" key={index}>
+                  <li
+                    className="pb-2"
+                    key={index}
+                  >
                     {item.link.length > 0 ? (
                       <NavLink
                         className="text-white font-bold hover:underline"
@@ -87,7 +93,10 @@ const Header = () => {
                     {item.children.length > 0 && (
                       <ul className="flex flex-col pl-3">
                         {item.children.map((child, index) => (
-                          <li className="pb-1" key={index}>
+                          <li
+                            className="pb-1"
+                            key={index}
+                          >
                             <NavLink
                               className=" text-sm whitespace-nowrap text-white font-bold hover:underline"
                               to={child.link}
@@ -105,14 +114,24 @@ const Header = () => {
           )}
         </AnimatePresence>
 
-        <NavLink to="/" className="flex items-center">
-          <img src={logo} alt="" className="w-40 mr-10 sm:w-60" />
+        <NavLink
+          to="/"
+          className="flex items-center"
+        >
+          <img
+            src={logo}
+            alt=""
+            className="w-40 mr-10 sm:w-60"
+          />
         </NavLink>
 
         {!isMobile && (
           <ul className="flex space-x-4 menu-main">
             {MenuList.map((item, index) => (
-              <li className="items-center flex relative menu-l1" key={index}>
+              <li
+                className="items-center flex relative menu-l1"
+                key={index}
+              >
                 {item.link.length > 0 ? (
                   <NavLink
                     className="text-white font-bold hover:underline hover:underline-offset-2"
@@ -129,9 +148,12 @@ const Header = () => {
                 {item.children.length > 0 && (
                   <ul className="submenu absolute top-full bg-white rounded-md shadow-sm p-2 min-w-[200px]">
                     {item.children.map((child, index) => (
-                      <li className="" key={index}>
+                      <li
+                        className=""
+                        key={index}
+                      >
                         <NavLink
-                          className="w-full block text-sm whitespace-nowrap bg-gray-50 border-t border-b border-gray-100 hover:bg-gray-300 px-3 py-2 rounded-md"
+                          className="w-full block text-sm whitespace-nowrap bg-gray-50 border-t border-b border-gray-100 hover:bg-gray-200 px-3 py-2 rounded-md"
                           to={child.link}
                         >
                           {child.label}
@@ -145,7 +167,10 @@ const Header = () => {
           </ul>
         )}
 
-        <HeaderSearch className="ml-auto pointer" isMobile={isMobile} />
+        <HeaderSearch
+          className="ml-auto pointer"
+          isMobile={isMobile}
+        />
       </div>
     </header>
   )

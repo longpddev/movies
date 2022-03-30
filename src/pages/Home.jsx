@@ -1,5 +1,4 @@
 import React from "react"
-import Score from "../components/Score"
 
 import Banner from "../components/Banner"
 import Popular from "../components/Popular"

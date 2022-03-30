@@ -1,5 +1,5 @@
 import React from "react"
-import { Routes, Route, NavLink, Navigate } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 
 import Layout from "./components/Layout"
@@ -12,7 +12,8 @@ import {
   MovieLogoPage, 
   MoviePostersPage, 
   MovieVideoPage,
-  MovieBackdropsPage
+  MovieBackdropsPage,
+  MovieReleaseDates
 } from "./pages/movieDetail"
 import Search from "./pages/Search"
 import Person from "./pages/Person"
@@ -84,6 +85,10 @@ const App = () => {
               <Route
                 path="video"
                 element={<MovieVideoPage />}
+              />
+              <Route
+                path="release"
+                element={<MovieReleaseDates />}
               />
             </Route>
           </Route>

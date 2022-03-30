@@ -6,7 +6,9 @@
 html {
     scroll-behavior: smooth;
 }
-
+:root {
+    --header-height: 63px;
+}
 .c-container {
     @apply container pl-4 pr-4 ml-auto mr-auto;
 }
@@ -133,4 +135,18 @@ a:hover {
 
 .img-hidden {
     display: none;
+}
+
+.go-to:before {
+    content: " ";
+    display: block;
+    height: calc(var(--header-height) + 1.5rem );
+    margin-top: calc(var(--header-height) * -1 - 1.5rem );
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.snap {
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
 }

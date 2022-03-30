@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { useGetSearchQuery } from "../../services/movieApi"
 const useMultiSearch = (search) => {
   const [moviesPage, setMoviesPage] = useState(1)

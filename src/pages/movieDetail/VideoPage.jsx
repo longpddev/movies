@@ -8,12 +8,10 @@ import Card from '../../components/Card'
 import DialogVideo from '../../components/DialogVideo'
 import Image from '../../components/Image'
 import CardMui from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 const VideoPage = () => {
-    const { movieId, data: movieData, isFetching: isFetchingMovie } = useContext(movieContext)
-    const { data: videos, isFetching: isFetchingVideos } = useGetMoviesQuery({
+    const { movieId } = useContext(movieContext)
+    const { data: videos } = useGetMoviesQuery({
         id: movieId,
         type: "videos"
     }, {
@@ -41,6 +39,7 @@ const VideoPage = () => {
             <Container.Sidebar>
                 <Card
                   name="posters"
+                  className="snap"
                   headerClass="font-bold"
                 >
                     {Object.keys(group).map((key, index) => (

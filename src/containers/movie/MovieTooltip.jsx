@@ -8,14 +8,14 @@ import StarIcon from "@mui/icons-material/Star"
 import BookmarkIcon from "@mui/icons-material/Bookmark"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import { Image } from "../utilities"
-import { useGetMoviesQuery, getImage } from "../../services/movieApi"
+import { useGetMoviesQuery } from "../../services/movieApi"
 
 const HtmlTooltip = styled(({ className, ...props }) => (
   <Tooltip
     {...props}
     classes={{ popper: className }}
   />
-))(({ theme }) => ({
+))(() => ({
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: "#032541",
     width: "100%",

@@ -31,6 +31,16 @@ export const TRENDING_TYPE = {
   time_window: ["day", "week"],
 }
 
+export const MEDIA_TYPE = [
+  "",
+  "Premiere", 
+  "Theatrical (limited)", 
+  "Theatrical", 
+  "Digital", 
+  "Physical", 
+  "TV"
+]
+
 export const obToParam = (ob) => {
   let result = ""
   Object.keys(ob).forEach((key) => {

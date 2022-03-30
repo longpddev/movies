@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { NavLink } from "react-router-dom"
 import { Pagination } from "@mui/material"
 
-import { useGetPersonQuery, getImage } from "../services/movieApi"
+import { useGetPersonQuery } from "../services/movieApi"
 import Loading from "../components/Loading"
 import { Image } from '../containers/utilities'
 

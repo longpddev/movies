@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 import { useGetPersonDetailQuery } from "../../services/movieApi"
 const PersonTranslate = () => {
   const { id: idPerson } = useParams()
-  const { data, isFetching } = useGetPersonDetailQuery(
+  const { data } = useGetPersonDetailQuery(
     {
       id: idPerson,
       type: "translations",

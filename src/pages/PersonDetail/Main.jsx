@@ -5,7 +5,7 @@ import InstagramIcon from "@mui/icons-material/Instagram"
 import moment from "moment"
 import Flickity from "react-flickity-component"
 
-import { useGetPersonDetailQuery, getImage } from "../../services/movieApi"
+import { useGetPersonDetailQuery } from "../../services/movieApi"
 import Loading from "../../components/Loading"
 import { PersonActivity } from "../../containers/person"
 import { Image } from '../../containers/utilities'
