@@ -1,5 +1,5 @@
-import React, { useMemo } from "react"
-import { useParams } from "react-router-dom"
+import React, { useMemo, useEffect } from "react"
+import { Link, useParams } from "react-router-dom"
 import TwitterIcon from "@mui/icons-material/Twitter"
 import InstagramIcon from "@mui/icons-material/Instagram"
 import moment from "moment"
@@ -20,6 +20,29 @@ const flickityOptions = {
   contain: true,
 }
 
+const KnownForItem = ({item}) => {
+  const name = item.title || item.name
+  const link = item.media_type === 'tv' ? `/tv/${item.id}` : `/movie/${item.id}`
+  return (
+    <div
+      className="px-2 w-[175px]"
+    >
+      <Image
+        size={200}
+        src={item.poster_path}
+        alt={item.title}
+        ratio={150}
+        className="w-full rounded-lg mb-2 block"
+      />
+      <p className="text-gray-700 text-sm text-center px-1">
+        <Link to={link}>
+          {name}
+        </Link>
+      </p>
+    </div>
+  )
+}
+
 const Main = () => {
   const { id: idPerson } = useParams()
   const { data, isFetching } = useGetPersonDetailQuery(
@@ -30,7 +53,10 @@ const Main = () => {
       skip: idPerson ? false : true,
     }
   )
-
+  useEffect(() => {
+    if(!(data?.name)) return;
+    document.title = data.name
+  }, [data?.name])
   const { data: credits } = useGetPersonDetailQuery(
     {
       id: idPerson,
@@ -49,6 +75,7 @@ const Main = () => {
     })
     return result.slice(0, 10)
   }, [credits])
+
   return (
     <>
       <SeconMenu menu={menu(idPerson)} />
@@ -123,21 +150,10 @@ const Main = () => {
               <p className="text-xl font-semibold mb-2">Known For</p>
               <Flickity options={flickityOptions}>
                 {knownFor.map((item, index) => (
-                  <div
-                    className="px-2 w-[175px]"
+                  <KnownForItem
+                    item={item}
                     key={index}
-                  >
-                    <Image
-                      size={200}
-                      src={item.poster_path}
-                      alt={item.title}
-                      ratio={150}
-                      className="w-full rounded-lg mb-2 block"
-                    />
-                    <p className="text-gray-700 text-sm text-center px-1">
-                      {item.title}
-                    </p>
-                  </div>
+                  />
                 ))}
               </Flickity>
               <PersonActivity idPerson={idPerson} />

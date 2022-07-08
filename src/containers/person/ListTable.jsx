@@ -12,7 +12,10 @@ const ListTable = ({ group = {} }) => {
     <table className="table-list">
       <tbody>
         {getYear.map((year) => (
-          <tr className="p-2 tr-lv-1" key={year}>
+          <tr
+            className="p-2 tr-lv-1"
+            key={year}
+          >
             <td className="border-0 ">
               <table>
                 <tbody>
@@ -26,6 +29,7 @@ const ListTable = ({ group = {} }) => {
                           <MovieTooltip
                             movieId={item.id}
                             open={item.id === tooltipShow}
+                            onClose={() => setTooltipShow(false)}
                           >
                             <button
                               className="c-dot inline"

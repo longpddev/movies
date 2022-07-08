@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import moment from "moment"
 
 import {
@@ -11,6 +11,11 @@ import {
 import CardFull from "../containers/card/CardFull"
 import { getImage } from "../services/movieApi"
 const SearchControl = ({ movies, company, keyword, person, tv }) => {
+
+  useEffect(() => {
+    document.title = 'Search page'
+  }, [])
+
   const [activeTab, setActiveTab] = useState(1)
   const tabs = [
     {
@@ -40,8 +45,8 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
           className="card-list mb-4"
           key={item.id}
         >
-          <NavLink
-            to="/"
+          <Link
+            to={`/tv/${item.id}`}
             className="flex"
           >
             <img
@@ -55,7 +60,7 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
                 {moment(new Date(item.first_air_date)).format("MMMM DD, YYYY")}
               </p>
             </div>
-          </NavLink>
+          </Link>
         </div>
       ),
     },
@@ -82,7 +87,10 @@ const SearchControl = ({ movies, company, keyword, person, tv }) => {
           )}
 
           <div className="flex justify-center flex-col py-2 px-4">
-            <p className="text-xl">{item.name}</p>
+            <Link
+              to={`/person/${item.id}`}
+              className="text-xl"
+            >{item.name}</Link>
             <p className="text-sm text-gray-400">{item.popularity}</p>
           </div>
         </div>

@@ -9,6 +9,7 @@ import Flickity from 'react-flickity-component';
 import "flickity/css/flickity.css"
 import { Image } from '../../containers/utilities'
 import Fetching from '../../components/Fetching';
+import ImageComponent from '../../components/Image'
 
 const flickityOptions = {
   initialIndex: 0,
@@ -73,10 +74,12 @@ const TabMedia = ({ movieId }) => {
                   <Flickity options={flickityOptions}>
                   {data.results.filter(item => item.site === 'YouTube').slice(0,10).map((item) => (
                       <div
-                        className="relative"
+                        className="relative min-w-[400px]"
                         key={item.id}
                       >
-                        <img
+                        <ImageComponent
+                          ratio="56.25"
+                          className=" object-center object-cover"
                           src={`https://img.youtube.com/vi/${item.key}/0.jpg`}
                           alt=""
                         />

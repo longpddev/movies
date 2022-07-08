@@ -4,9 +4,15 @@ import Score from "../../components/Score"
 
 import { Image } from '../utilities'
 import moment from "moment"
+import CardMoreAction from "./CardMoreAction"
+
 const CardTvShow = ({ data }) => {
   return (
-    <div className="h-full">
+    <div className="h-full relative rounded-lg overflow-hidden">
+      <CardMoreAction
+        media_id={data.id}
+        type={"tv_show"}
+      />
       <NavLink
         to={`/tv/${data.id}`}
         className="flex flex-col h-full"

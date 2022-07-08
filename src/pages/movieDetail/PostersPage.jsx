@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from 'react'
+import React, { useContext, useMemo, useState, useEffect } from 'react'
 import Layout, { movieContext } from './Layout'
 import { useGetMoviesQuery, getImage } from '../../services/movieApi'
 import Container from '../../components/Container'
@@ -35,6 +35,13 @@ const PostersPage = () => {
 
         return result
     }, [ posters ])
+
+    useEffect(() => {
+        let key = Object.keys(language);
+        console.log(key)
+        if(key.length === 0) return;
+        setActive(key[0])
+    }, [language])
   return (
     <Container>
         <Container.Wrap>
@@ -58,7 +65,7 @@ const PostersPage = () => {
             <Container.Main>
                 <div className="grid xl:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-4">
                 {language[active] && language[active].items.map((item, index) => (
-                    <CardMui >
+                    <CardMui key={index}>
                         <CardMedia
                           component="img"
                           height={item.height}

@@ -15,9 +15,22 @@ import {
   MovieBackdropsPage,
   MovieReleaseDates
 } from "./pages/movieDetail"
+
+import {
+  TvShowDetail,
+  TvShowCastPage,
+  TvShowBackdropsPage,
+  TvShowPostersPage,
+  TvShowVideoPage,
+  TvShowReleaseDates
+} from './pages/tvShowDetail'
 import Search from "./pages/Search"
 import Person from "./pages/Person"
 import { PersonDetail, PersonTranslate } from "./pages/PersonDetail"
+import Login from "./pages/Login"
+import Approved from "./pages/Approved"
+import Logout from "./pages/Logout"
+import Account from "./pages/Account"
 const theme = createTheme({
   components: {
     MuiInputBase: {
@@ -98,9 +111,33 @@ const App = () => {
               element={<Category discover="tv" />}
             />
             <Route
-              path=":slug"
-              element={<Home />}
-            />
+              path=":id"
+            >
+              <Route
+                index
+                element={<TvShowDetail />}
+              />
+              <Route
+                path="cast"
+                element={<TvShowCastPage />}
+              />
+              <Route
+                path="backdrops"
+                element={<TvShowBackdropsPage />}
+              />
+              <Route
+                path="posters"
+                element={<TvShowPostersPage />}
+              />
+              <Route
+                path="video"
+                element={<TvShowVideoPage />}
+              />
+              <Route
+                path="release"
+                element={<TvShowReleaseDates />}
+              />
+            </Route>
           </Route>
           <Route
             path="/about-us"
@@ -142,6 +179,27 @@ const App = () => {
             path="/style-guide"
             element={<StyleGuide />}
           />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/approved"
+            element={<Approved />}
+          />
+          <Route
+            path="/logout"
+            element={<Logout />}
+          />
+          <Route
+            path="/account"
+          >
+            <Route
+              index
+              path="*"
+              element={<Account />}
+            />
+            </Route>
           <Route
             path="*"
             element={<Navigate to="/404" />}

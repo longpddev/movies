@@ -1,10 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import Banner from "../components/Banner"
 import Popular from "../components/Popular"
 import Trending from "../components/Trending"
 
 const Home = () => {
+
+  useEffect(() => {
+    document.title = 'Home page'
+  }, [])
   return (
     <div>
       <Banner className="mb-8" />

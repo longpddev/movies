@@ -18,11 +18,11 @@ const InputSearch = ({ setSearch }) => {
   }, [debounceVal])
   return (
     <div className="border-b border-gray-300 py-2 flex items-center">
-      <div className="c-container">
-        <SearchIcon className="mr-2 mb-1" />
+      <div className="c-container flex items-center">
+        <SearchIcon className="mr-2" />
         <input
           type="text"
-          className="border-0 outline-0 text-xl py-1 px-2 "
+          className="border-0 outline-0 text-xl py-1 px-2 flex-1"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search..."

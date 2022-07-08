@@ -12,7 +12,7 @@ const HeaderSearch = ({ isMobile, className }) => {
   const [isActive, setIsActive] = useState(false)
   const { data: searchResult, isFetching } = useGetSearchQuery(
     {
-      type: "keyword",
+      type: "multi",
       keyword: debounceVal,
     },
     {
@@ -63,18 +63,24 @@ const HeaderSearch = ({ isMobile, className }) => {
                 onSubmit={handleSubmit}
               >
                 <input
-                  className="rounded-full p-2 pl-5 shadow-md border-0 outline-0 w-full"
+                  className="rounded-full p-2 pl-5 shadow-md border-0 outline-0 w-full mb-3"
                   type="text"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   placeholder="Search for a movie, Tv shows..."
                 />
               </form>
-              <motion.div layout>
+              <div>
                 {isFetching ? (
-                  <p>Loading...</p>
+                  <p >Loading...</p>
                 ) : (
-                  <div className="result">
+                  <motion.div
+                    layout
+                    className="result"
+                    animate={{  opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0 }}
+                  >
                     {searchResult?.results?.length > 0 ? (
                       <ul>
                         {searchResult.results.map((item) => (
@@ -93,9 +99,9 @@ const HeaderSearch = ({ isMobile, className }) => {
                         </span>
                       </div>
                     )}
-                  </div>
+                  </motion.div>
                 )}
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         )}

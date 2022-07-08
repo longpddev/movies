@@ -4,5 +4,8 @@
         "source.fixAll.eslint": true
     },
     "prettier.eslintIntegration": true,
-    "eslint.validate": ["javascript"]
+    "eslint.validate": [
+        "javascript"
+    ],
+    "editor.tabSize": 2
 }

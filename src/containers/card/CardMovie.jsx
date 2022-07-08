@@ -1,18 +1,24 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 import Score from "../../components/Score"
-
 import { Image } from '../utilities'
 import moment from "moment"
+import CardMoreAction from "./CardMoreAction";
+
 const CardMovie = ({ data }) => {
   return (
-    <div className="h-full">
+    <div className="h-full relative rounded-lg overflow-hidden">
+      <CardMoreAction
+        media_id={data.id}
+        type={"movies"}
+      />
+
       <NavLink
         to={`/movie/${data.id}`}
         className="flex flex-col h-full"
       >
         <div className="relative mb-6">
-          <div className="rounded-lg min-h-[225px]">
+          <div className="min-h-[225px]">
             <Image
               src={data.poster_path}
               ratio={150}

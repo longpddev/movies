@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { styled } from "@mui/material/styles"
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip"
 import ReactLoading from "react-loading"
@@ -9,7 +9,7 @@ import BookmarkIcon from "@mui/icons-material/Bookmark"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import { Image } from "../utilities"
 import { useGetMoviesQuery } from "../../services/movieApi"
-
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 const HtmlTooltip = styled(({ className, ...props }) => (
   <Tooltip
     {...props}
@@ -18,7 +18,7 @@ const HtmlTooltip = styled(({ className, ...props }) => (
 ))(() => ({
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: "#032541",
-    width: "100%",
+    width: "100vh",
     maxWidth: "534px",
     border: "unset",
     padding: 0,
@@ -34,7 +34,8 @@ const HtmlTooltip = styled(({ className, ...props }) => (
   },
 }))
 
-const MovieTooltip = ({ children, movieId, open, ...props }) => {
+const MovieTooltip = ({ children, movieId, open, onClose, ...props }) => {
+  const ref = useRef();
   const { data, isFetching } = useGetMoviesQuery(
     {
       id: movieId,
@@ -43,26 +44,32 @@ const MovieTooltip = ({ children, movieId, open, ...props }) => {
       skip: !open,
     }
   )
-
   return (
     <HtmlTooltip
       placement="top"
       arrow
+      ref={ref}
       disableFocusListener
       disableHoverListener
       disableTouchListener
       open={open}
       {...props}
       title={
-        <>
+        <ClickAwayListener onClickAway={() => onClose(false)}>
+        <div className="w-full h-full flex">
           {isFetching ? (
-            <div className="flex w-full h-full justify-center items-center">
+            <div className=" h-full justify-center items-center">
               <ReactLoading type="bubbles" />
             </div>
           ) : (
-            <MovieTooltipContent data={data} />
+            data ? <MovieTooltipContent data={data} /> : (
+              <div className="w-full flex justify-center items-center text-2xl">
+                <span>Cant load data</span>
+              </div>
+            )
           )}
-        </>
+        </div>
+        </ClickAwayListener>
       }
     >
       {children}

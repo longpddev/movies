@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import { Pagination } from "@mui/material"
 
@@ -12,6 +12,10 @@ const Person = () => {
     type: "popular",
     page: page,
   })
+
+  useEffect(() => {
+    document.title = 'Person page'
+  }, [])
   return (
     <div className="c-container mb-10 pt-10">
       <h1 className="text-2xl font-bold mb-4">Popular People</h1>

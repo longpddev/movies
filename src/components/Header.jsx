@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion"
 
 import HeaderSearch from "./HeaderSearch"
 import logo from "../images/logo.svg"
+import NavAccount from "../containers/NavAccount/NavAccount"
+import useAuthen from "../hooks/useAuthen"
 
 const MenuList = [
   {
@@ -44,7 +46,7 @@ const MenuList = [
 const Header = () => {
   const isMobile = useMediaQuery("(max-width:768.98px)")
   const [isOpenMenu, setIsOpenMenu] = useState(false)
-
+  const { isLogin } = useAuthen()
   return (
     <header className="header pt-4 pb-4 flex bg-sky-900 sticky top-0 z-10">
       <div className="c-container m-auto flex align-center">
@@ -166,11 +168,15 @@ const Header = () => {
             ))}
           </ul>
         )}
-
-        <HeaderSearch
-          className="ml-auto pointer"
-          isMobile={isMobile}
-        />
+        <div className="ml-auto flex">
+          {isLogin && (
+            <NavAccount />
+          )}
+          <HeaderSearch
+            className="pointer ml-4"
+            isMobile={isMobile}
+          />
+        </div>
       </div>
     </header>
   )

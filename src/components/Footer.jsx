@@ -15,7 +15,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="md:w-3/4 pb-8 flex flex-col justify-center">
-          <p className="text-xl text-white text-center">Project reactjs clone website
+          <p className="text-sm sm:text-xl text-white text-center">Project reactjs clone website
             <a
               href="https://www.themoviedb.org"
               target="_blank"

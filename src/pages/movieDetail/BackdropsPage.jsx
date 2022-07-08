@@ -59,8 +59,8 @@ const BackdropsPage = () => {
             </Container.Sidebar>
             <Container.Main>
                 <div className="grid xl:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-4">
-                {language[active].items.map((item, index) => (
-                    <CardMui >
+                {language[active] && language[active].items.map((item, index) => (
+                    <CardMui key={index}>
                         <CardMedia
                           component="img"
                           height={item.height}

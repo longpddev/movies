@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useEffect } from 'react'
 import { Link, useParams } from "react-router-dom"
 import { useGetMoviesQuery } from "../../services/movieApi"
 import menu from './configMenu'
@@ -18,6 +18,11 @@ const Layout = ({ children, main = false }) => {
         skip: !movieId,
       }
     )
+
+    useEffect(() => {
+      if(!(data?.title)) return;
+      document.title = data.title
+    }, [data?.title])
     return (
         <movieContext.Provider value={{ movieId, data , isFetching}}>
             <SeconMenu menu={menu(movieId)} />

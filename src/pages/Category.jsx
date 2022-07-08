@@ -54,7 +54,10 @@ const Category = ({ discover = "movie" }) => {
   useEffect(() => {
     setFilter(state)
   }, [state.page])
-
+  
+  useEffect(() => {
+    document.title = 'Category page'
+  }, [])
   return (
     <div className="c-container mb-10 pt-10 ">
       <h1 className="text-4xl font-medium text-gray-800 mb-5">Category</h1>
