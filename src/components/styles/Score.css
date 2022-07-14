@@ -1,0 +1,40 @@
+.score {
+    overflow: hidden;
+    position: relative;
+    height: 3.4em;
+    width: 3.4em;
+    font-size: 10px;
+    /* background-color: #081c22; */
+}
+
+.score__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 2.6em;
+    width: 2.6em;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    background-color: #081c22;
+    @apply text-white text-center;
+    font-size: 1em;
+    line-height: 2.6em;
+    user-select: none;
+    font-weight: 600;
+}
+
+.score__inner span {
+    font-size: 0.5em;
+}
+
+.score-rate {
+    height: 3.4em;
+    width: 3.4em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 100%;
+    background-color: green;
+    border: 0.2em solid #081c22;
+}
