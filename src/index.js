@@ -13,7 +13,7 @@ setupStoreAccount(store)
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename={process.env.NODE_ENV === 'development' ? '/' : "/movies"}>
       <Provider store={store}>
         <App />
       </Provider>
